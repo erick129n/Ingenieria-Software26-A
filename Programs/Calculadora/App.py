@@ -114,6 +114,10 @@ class App(tk.Tk):
 
         self.numero_aux = 0
         self.operador = ''
+        self.Dec = True
+        self.Hexa = False
+        self.Octa = False
+        self.Bin = False
 
     def dissable_operations(self):
         self.buttonMultiplicacion.config(state='disabled')
@@ -268,6 +272,9 @@ class App(tk.Tk):
         self.display.config(state='disabled')
 
     def button_Hexa(self):
+        self.Hexa = True
+        self.Octa = False
+        self.Bin = False
         self.displayHex.config(state='normal')
         self.enable_numHex()
         self.enable_numbers()
@@ -288,6 +295,10 @@ class App(tk.Tk):
         self.displayHex.config(state='disabled')
 
     def button_Decimal(self):
+        self.Dec = True
+        self.Hexa = False
+        self.Bin = False
+        self.Octa = False
         self.display.config(state='normal')
         self.displayDec.config(state='normal')
         self.dissable_numHex()
@@ -323,6 +334,9 @@ class App(tk.Tk):
         self.displayBin.config(state='disabled')
 
     def button_Octal(self):
+        self.Octa = True
+        self.Bin = False
+        self.Hexa = False
         self.displayOct.config(state='normal')
         self.dissable_operations()
         self.dissable_numHex()
@@ -362,14 +376,36 @@ class App(tk.Tk):
 
     def button_suma(self):
         self.display.config(state='normal')
-        self.numero_aux = int(self.display.get())
+        try:
+            self.numero_aux = (self.display.get())
+        except:
+            if self.Hexa == True:
+                self.mumero_aux = int(self.display.get(), 16)
+            elif self.Octa == True:
+                self.numero_aux = int(self.display.get(), 8)
+            elif self.Bin == True: 
+                int(self.display.get(), 2)
+            else:
+                ValueError
+                return
         self.display.delete(0, END)
         self.display.config(state='disabled')
         self.operando = '+'
 
     def button_resta(self):
         self.display.config(state='normal')
-        self.numero_aux = int(self.display.get())
+        try:
+            self.numero_aux = (self.display.get())
+        except:
+            if self.Hexa == True:
+                self.mumero_aux = int(self.display.get(), 16)
+            elif self.Octa == True:
+                self.numero_aux = int(self.display.get(), 8)
+            elif self.Bin == True: 
+                int(self.display.get(), 2)
+            else:
+                ValueError
+                return
         self.display.delete(0, END)
         self.display.config(state='disabled')
         self.operando = '-'
