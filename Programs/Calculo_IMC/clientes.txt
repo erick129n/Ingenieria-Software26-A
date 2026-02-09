@@ -1,0 +1,4 @@
+0,Erick,Hidalgo 15,3317997958,Masculino,2/9/26,1.89, 92,0
+1,Erick,Hidalgo 15,3317997958,Masculino,2/9/26,1.89, 92,0
+2,Manuel,Tonala 321,1234567890,Masculino,2/22/06,1.9, 93.0,25.76
+3,Eduardo,Torres Quintero 763,0987654321,Masculino,2/6/89,1.78, 89.0,28.09
