@@ -111,15 +111,26 @@ class App(tk.Tk):
                 self.labl_nacimiento = tk.Label(self.ventana, text=f'Nacimiento: {self.cliente.nacimiento}')
                 self.labl_altura = tk.Label(self.ventana, text=f'Altura: {self.cliente.estatura}')
                 self.labl_peso = tk.Label(self.ventana, text=f'Peso: {self.cliente.peso}')
+                self.pgb_imc = ttk.Progressbar(self.ventana, orient='horizontal', length=200, mode='determinate', maximum=40, value=self.imc)
+                if self.imc <= 18:
+                     self.pgb_imc.config(style='red.Horizontal.TProgressbar')
+                elif 18 > self.imc <= 24:
+                    self.pgb_imc.config(style='green.Horizontal.TProgressbar')
+                elif 24 > self.imc <= 29:
+                    self.pgb_imc.config(style='yellow.Horizontal.TProgressbar')
+                elif 29 > self.imc <=39:
+                    self.pgb_imc.config(style='orange.Horizontal.TProgressbar')
+                else:
+                    self.pgb_imc.config(style='red.Horizontal.TProgressbar')
 
                 estado = ''
                 if(self.cliente.imc <= 18):
                     estado = 'infrapeso'
-                elif 18 > self.cliente.imc <= 24:
+                elif 18 < self.cliente.imc <= 24:
                     estado = 'Normal'
-                elif 24 > self.cliente.imc <= 29:
+                elif 24 < self.cliente.imc <= 29:
                     estado = 'Sobrepeso'
-                elif 29 > self.cliente.imc <=39:
+                elif 29 < self.cliente.imc <=39:
                     estado = 'Obesidad'
                 else:
                     estado = 'Obesidad extrema'
@@ -137,7 +148,7 @@ class App(tk.Tk):
                 self.labl_peso.grid(row=8, column=1)
                 self.show_resultado_imc.grid(row=9, column=2)
                 self.label_estado_nutricion.grid(row=10, column=1)
-
+                self.pgb_imc.grid(row=11, column=1, pady=10)
 
                 #tk.messagebox.showinfo("IMC", f"Tu IMC es: {self.imc:.2f}")
             except ValueError:
