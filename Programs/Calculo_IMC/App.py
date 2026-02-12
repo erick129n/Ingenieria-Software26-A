@@ -149,8 +149,6 @@ class App(tk.Tk):
                 self.show_resultado_imc.grid(row=9, column=2)
                 self.label_estado_nutricion.grid(row=10, column=1)
                 self.pgb_imc.grid(row=11, column=1, pady=10)
-
-                #tk.messagebox.showinfo("IMC", f"Tu IMC es: {self.imc:.2f}")
             except ValueError:
                 tk.messagebox.showerror("Error", "Por favor, ingresa una medida válida.")
         def nuevo(self):
