@@ -770,24 +770,42 @@ class App(tk.Tk):
             numero = self.habitacion_entry_numero.get().strip()
             estado = self.habitacion_combo_estado.get().strip()
 
-            if not self.id_habitacion or not numero or not estado:
-                messagebox.showerror('Error', 'Todos los campos son obligatorios para crear una habitación.')
-                return
-            
-            nueva_habitacion = Room(self.id_habitacion, numero, estado)
-            
-            self.habitaciones.append(nueva_habitacion)
-            ruta_archivo = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Data", "habitaciones.txt")
-            with open(ruta_archivo, 'a', encoding='utf-8') as f:
-                f.write(f"{self.id_habitacion}|{numero}|{estado}\n")
-                print(f"Habitación {numero} guardada en archivo.")
-            self.actualizarComboHabitacionId()  # Actualizar combo de habitaciones en reservaciones
-            messagebox.showinfo('Éxito', f'Habitación {numero} creada correctamente.')
-            self.habitacion_entry_id.delete(0, tk.END)
-            self.habitacion_entry_numero.delete(0, tk.END)
-            self.habitacion_combo_estado.set('')
-            self.estadoActual = self.ESTADO_GUARDADO
-            print(f"Estado actual al finalizar nueva habitacion: {self.estadoActual}")
+            if self.estadoActual == self.ESTADO_EDITANDO or self.ESTADO_GUARDADO:
+                for habitacion in self.habitaciones:
+                    if habitacion.id_habitacion == int(self.id_habitacion):
+                        habitacion.numero = int(numero)
+                        habitacion.estado = estado
+
+                ruta_archivo = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Data", "habitaciones.txt")
+                with open(ruta_archivo, 'w', encoding='utf-8') as f:
+                    for h in self.habitaciones:
+                        f.write(f"{h.id_habitacion}|{h.numero}|{h.estado}\n")
+                    
+                self.estadoActual = self.ESTADO_GUARDADO
+                print(f"Estado al guardar los cambios: {self.estadoActual}")
+                self.habitacion_entry_id.delete(0, tk.END)
+                self.habitacion_entry_numero.delete(0, tk.END)
+                self.habitacion_combo_estado.set('')
+
+            else:
+                if not self.id_habitacion or not numero or not estado:
+                    messagebox.showerror('Error', 'Todos los campos son obligatorios para crear una habitación.')
+                    return
+                
+                nueva_habitacion = Room(self.id_habitacion, numero, estado)
+                
+                self.habitaciones.append(nueva_habitacion)
+                ruta_archivo = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Data", "habitaciones.txt")
+                with open(ruta_archivo, 'a', encoding='utf-8') as f:
+                    f.write(f"{self.id_habitacion}|{numero}|{estado}\n")
+                    print(f"Habitación {numero} guardada en archivo.")
+                self.actualizarComboHabitacionId()  # Actualizar combo de habitaciones en reservaciones
+                messagebox.showinfo('Éxito', f'Habitación {numero} creada correctamente.')
+                self.habitacion_entry_id.delete(0, tk.END)
+                self.habitacion_entry_numero.delete(0, tk.END)
+                self.habitacion_combo_estado.set('')
+                self.estadoActual = self.ESTADO_GUARDADO
+                print(f"Estado actual al finalizar nueva habitacion: {self.estadoActual}")
         
         except Exception as e:
             messagebox.showerror('Error', f'Error al crear habitación: {str(e)}')
