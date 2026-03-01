@@ -1,0 +1,471 @@
+2026-02-28 15:25:31 | ERROR | MySQL Connection not available.
+2026-02-28 15:25:31 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\conection2.py", line 47, in print
+    cursor = self.conn.cursor()
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 841, in cursor
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+
+2026-02-28 15:25:41 | ERROR | Mysql error: 2005 (HY000): Unknown MySQL server host 'hostname' (11001)
+2026-02-28 15:25:41 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Unknown MySQL server host 'hostname' (11001)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\conection2.py", line 18, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2005 (HY000): Unknown MySQL server host 'hostname' (11001)
+
+2026-02-28 15:28:36 | ERROR | MySQL Connection not available.
+2026-02-28 15:28:36 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\conection2.py", line 47, in print
+    cursor = self.conn.cursor()
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 841, in cursor
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+
+2026-02-28 15:28:45 | ERROR | Mysql error: 1045 (28000): Access denied for user 'user'@'localhost' (using password: NO)
+2026-02-28 15:28:45 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'user'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\conection2.py", line 18, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'user'@'localhost' (using password: NO)
+
+2026-02-28 15:30:49 | ERROR | MySQL Connection not available.
+2026-02-28 15:30:49 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\conection2.py", line 47, in print
+    cursor = self.conn.cursor()
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 841, in cursor
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+
+2026-02-28 15:30:59 | ERROR | User.__init__() missing 5 required positional arguments: 'usurious_id', 'nombre', 'username', 'password', and 'perfil'
+2026-02-28 15:30:59 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 138, in Autentificar
+    aux = User()
+TypeError: User.__init__() missing 5 required positional arguments: 'usurious_id', 'nombre', 'username', 'password', and 'perfil'
+
+2026-02-28 15:42:19 | ERROR | User.__init__() missing 5 required positional arguments: 'user_id', 'nombre', 'username', 'password', and 'perfil'
+2026-02-28 15:42:19 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 138, in Autentificar
+    aux = User()
+TypeError: User.__init__() missing 5 required positional arguments: 'user_id', 'nombre', 'username', 'password', and 'perfil'
+
+2026-02-28 22:53:03 | ERROR | invalid literal for int() with base 10: ''
+2026-02-28 22:53:03 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 111, in buscar_usuario
+    id_usuario = int(self.entryId.get())
+ValueError: invalid literal for int() with base 10: ''
+
+2026-02-28 22:56:42 | ERROR | invalid literal for int() with base 10: ''
+2026-02-28 22:56:42 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 111, in buscar_usuario
+    id_usuario = int(self.entryId.get())
+ValueError: invalid literal for int() with base 10: ''
+
+2026-02-28 23:00:00 | ERROR | invalid literal for int() with base 10: ''
+2026-02-28 23:00:00 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 111, in buscar_usuario
+    id_usuario = int(self.entryId.get().strip())
+ValueError: invalid literal for int() with base 10: ''
+
+2026-02-28 23:01:36 | DEBUG | 
+2026-02-28 23:01:36 | ERROR | 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+2026-02-28 23:01:36 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 129, in buscar
+    self.cursor.execute(sql)
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+2026-02-28 23:11:19 | DEBUG | 
+2026-02-28 23:11:19 | ERROR | 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+2026-02-28 23:11:19 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 129, in buscar
+    self.cursor.execute(sql)
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+2026-02-28 23:17:30 | DEBUG | 
+2026-02-28 23:17:30 | ERROR | 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+2026-02-28 23:17:30 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 129, in buscar
+    self.cursor.execute(sql)
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+2026-02-28 23:27:55 | DEBUG | 1
+2026-02-28 23:42:08 | DEBUG | Id buscado:1
+2026-02-28 23:42:08 | INFO | Usuario encontrado: 1
+2026-02-28 23:42:08 | ERROR | wrong # args: should be ".!frame.!frame2.!entry insert index text"
+2026-02-28 23:42:08 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 142, in buscar_usuario
+    self.put_data_user_in_entry()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 114, in put_data_user_in_entry
+    self.entryId.insert(0, self.usuario.getUsuario_id())
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python314\Lib\tkinter\__init__.py", line 3285, in insert
+    self.tk.call(self._w, 'insert', index, string)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_tkinter.TclError: wrong # args: should be ".!frame.!frame2.!entry insert index text"
+
+2026-02-28 23:43:45 | DEBUG | Id buscado:1
+2026-02-28 23:43:45 | INFO | Usuario encontrado: 1
+2026-02-28 23:43:45 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x00000280B403D6D0>
+2026-02-28 23:43:45 | ERROR | wrong # args: should be ".!frame.!frame2.!entry insert index text"
+2026-02-28 23:43:45 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 143, in buscar_usuario
+    self.put_data_user_in_entry()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 114, in put_data_user_in_entry
+    self.entryId.insert(0, self.usuario.getUsuario_id())
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python314\Lib\tkinter\__init__.py", line 3285, in insert
+    self.tk.call(self._w, 'insert', index, string)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_tkinter.TclError: wrong # args: should be ".!frame.!frame2.!entry insert index text"
+
+2026-02-28 23:46:09 | DEBUG | Id buscado:1
+2026-02-28 23:46:09 | INFO | Usuario encontrado: 1
+2026-02-28 23:46:09 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x0000017ACC13D6D0>
+2026-02-28 23:46:09 | ERROR | wrong # args: should be ".!frame.!frame2.!entry2 insert index text"
+2026-02-28 23:46:09 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 143, in buscar_usuario
+    self.put_data_user_in_entry()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 115, in put_data_user_in_entry
+    self.entryNombre.insert(0, self.usuario.getNombre())
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python314\Lib\tkinter\__init__.py", line 3285, in insert
+    self.tk.call(self._w, 'insert', index, string)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_tkinter.TclError: wrong # args: should be ".!frame.!frame2.!entry2 insert index text"
+
+2026-02-28 23:47:18 | DEBUG | Id buscado:1
+2026-02-28 23:47:18 | INFO | Usuario encontrado: 1
+2026-02-28 23:47:18 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001B8D47FD6D0>
+2026-02-28 23:55:53 | DEBUG | Id buscado:1
+2026-02-28 23:55:53 | INFO | Usuario encontrado: 1
+2026-02-28 23:55:53 | DEBUG | ID del usuario:1
+2026-02-28 23:55:53 | DEBUG | Nombre del usuario:Erick
+2026-02-28 23:55:53 | DEBUG | Username  del usuario:user_1
+2026-02-28 23:55:53 | DEBUG | Password del usuario:root
+2026-02-28 23:55:53 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x00000225A69A1810>
+2026-02-28 23:58:03 | DEBUG | Id buscado:1
+2026-02-28 23:58:03 | INFO | Usuario encontrado: 1
+2026-02-28 23:58:03 | DEBUG | Id del usuario en page:1
+2026-02-28 23:58:03 | DEBUG | Nombre del usuario en page:Erick
+2026-02-28 23:58:03 | DEBUG | Username del usuario en page:user_1
+2026-02-28 23:58:03 | DEBUG | Password del usuario en page:root
+2026-02-28 23:58:03 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001CD3AD05810>
+2026-02-28 23:59:09 | DEBUG | Id buscado:1
+2026-02-28 23:59:09 | INFO | Usuario encontrado: 1
+2026-02-28 23:59:09 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001E0CF55D6D0>
+2026-03-01 00:00:31 | DEBUG | Id buscado:1
+2026-03-01 00:00:31 | INFO | Usuario encontrado: 1
+2026-03-01 00:00:31 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000002272E0DD6D0>
+2026-03-01 00:12:28 | DEBUG | Id buscado:1
+2026-03-01 00:12:28 | INFO | Usuario encontrado: 1
+2026-03-01 00:12:28 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x00000234871FD6D0>
+2026-03-01 00:12:51 | DEBUG | Id buscado:1
+2026-03-01 00:12:51 | INFO | Usuario encontrado: 1
+2026-03-01 00:12:51 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x0000026C1FECD6D0>
+2026-03-01 00:13:27 | DEBUG | Id buscado:1
+2026-03-01 00:13:27 | INFO | Usuario encontrado: 1
+2026-03-01 00:13:27 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x00000198C64ED6D0>
+2026-03-01 00:14:13 | DEBUG | Id buscado:1
+2026-03-01 00:14:13 | INFO | Usuario encontrado: 1
+2026-03-01 00:14:13 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x00000199D85BD6D0>
+2026-03-01 00:14:59 | DEBUG | Id buscado:1
+2026-03-01 00:14:59 | INFO | Usuario encontrado: 1
+2026-03-01 00:14:59 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000002D1E30BD6D0>
+2026-03-01 00:29:14 | DEBUG | Id buscado:1
+2026-03-01 00:29:14 | INFO | Usuario encontrado: 1
+2026-03-01 00:29:14 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x0000018D7CF7E0D0>
+2026-03-01 00:39:21 | ERROR | 1146 (42S02): Table 'taller.usuario' doesn't exist
+2026-03-01 00:39:22 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Table 'taller.usuario' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 27, in save
+    self.cursor.execute(sql,datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'taller.usuario' doesn't exist
+
+2026-03-01 01:19:57 | INFO | Usuario encontrado: 1
+2026-03-01 01:19:57 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x0000023E4A075450>
+2026-03-01 01:20:37 | INFO | Usuario encontrado: 1
+2026-03-01 01:20:37 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x0000029F4C9F5450>
+2026-03-01 01:21:17 | INFO | Usuario encontrado: 1
+2026-03-01 01:21:17 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x0000021DBE711590>
+2026-03-01 01:21:29 | ERROR | Not all parameters were used in the SQL statement
+2026-03-01 01:21:29 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 77, in editar
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\cursor_cext.py", line 335, in execute
+    raise ProgrammingError(
+        "Not all parameters were used in the SQL statement"
+    )
+mysql.connector.errors.ProgrammingError: Not all parameters were used in the SQL statement
+
+2026-03-01 01:25:41 | INFO | Usuario encontrado: 1
+2026-03-01 01:25:41 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000002453B0D5450>
+2026-03-01 01:29:09 | INFO | Usuario encontrado: 1
+2026-03-01 01:29:09 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000002453B02B5C0>
+2026-03-01 01:31:55 | INFO | Usuario encontrado: 1
+2026-03-01 01:31:55 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x00000213B43D5310>
+2026-03-01 01:34:59 | INFO | Usuario encontrado: 1
+2026-03-01 01:34:59 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001D2D4D25450>
+2026-03-01 01:40:03 | INFO | Usuario encontrado: 1
+2026-03-01 01:40:03 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x00000262921A5590>
+2026-03-01 01:43:23 | INFO | Usuario encontrado: 1
+2026-03-01 01:43:23 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001FB85F05310>
+2026-03-01 01:47:06 | INFO | Usuario encontrado: 1
+2026-03-01 01:47:06 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001DC44724910>
+2026-03-01 01:47:13 | ERROR | Unread result found
+2026-03-01 01:47:13 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 84, in editar
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\cursor_cext.py", line 315, in execute
+    self._connection.handle_unread_result()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 1121, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2026-03-01 01:47:13 | ERROR | Unread result found
+2026-03-01 01:47:13 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 201, in salvarUsuario
+    if db.editar(usr):
+       ~~~~~~~~~^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 94, in editar
+    self.close()
+    ~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 199, in close
+    self.cursor.close()
+    ~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\cursor_cext.py", line 513, in close
+    self._connection.handle_unread_result()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 1121, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2026-03-01 01:47:27 | ERROR | Unread result found
+2026-03-01 01:47:27 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 84, in editar
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\cursor_cext.py", line 315, in execute
+    self._connection.handle_unread_result()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 1121, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2026-03-01 01:47:27 | ERROR | Unread result found
+2026-03-01 01:47:27 | ERROR | Traceback (most recent call last):
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\views\Pages\user_page.py", line 201, in salvarUsuario
+    if db.editar(usr):
+       ~~~~~~~~~^^^^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 94, in editar
+    self.close()
+    ~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\src\databases\dbUsuario.py", line 199, in close
+    self.cursor.close()
+    ~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\cursor_cext.py", line 513, in close
+    self._connection.handle_unread_result()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\USER\Documents\Archivos\Ingenieria-Software26-A\Programs\Proyecto2\.venv\Lib\site-packages\mysql\connector\connection_cext.py", line 1121, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2026-03-01 01:49:10 | INFO | Usuario encontrado: 1
+2026-03-01 01:49:11 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001CFB4195310>
+2026-03-01 01:54:08 | INFO | Usuario encontrado: 1
+2026-03-01 01:54:08 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001E3BFED5450>
+2026-03-01 01:55:35 | INFO | Usuario encontrado: 1
+2026-03-01 01:55:35 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x00000252AA795450>
+2026-03-01 01:56:06 | INFO | Usuario encontrado: 1
+2026-03-01 01:56:06 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x0000022DEEA45450>
+2026-03-01 02:04:26 | INFO | Usuario encontrado: 3
+2026-03-01 02:04:26 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x00000270DF305450>
+2026-03-01 02:04:51 | INFO | Usuario encontrado: 3
+2026-03-01 02:04:51 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001D7BFDC5450>
+2026-03-01 02:04:56 | INFO | Usuario encontrado: 4
+2026-03-01 02:04:56 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001D7BFDC6350>
