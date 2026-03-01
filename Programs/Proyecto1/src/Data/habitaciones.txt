@@ -1,0 +1,6 @@
+2|12|Libre
+1|10|Reservado
+3|13|Reservado
+4|14|Libre
+5|16|Reservado
+6|15|Libre
