@@ -1,6 +1,6 @@
 Documentos/
-
-*/.env
+.env
+/.env
 Proyecto2/.env
 Proyecto2/src/__pycache__/
 *__pycache__/
