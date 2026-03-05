@@ -11,6 +11,7 @@ class Conection:
         self.password = config('MYSQL_PASSWORD')
         self.database = config('MYSQL_DATABASE')
         self.host = config('MYSQL_HOST')
+        self.port = config('MYSQL_PORT')
         self.conn = None
 
     def open(self):
@@ -18,12 +19,12 @@ class Conection:
             self.conn = mysql.connector.connect(
                 host= self.host,
                 user= self.user,
-                password='',
-                database=self.database
+                password=self.password,
+                database=self.database,
+                port=self.port
             )
 
             if self.conn.is_connected():
-                print("connected")
                 return self.conn
             else:
                 return None
@@ -48,7 +49,6 @@ class Conection:
             cursor.execute(query)
             for row in cursor.fetchall():
                 print(row)
-            print("connected")
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())

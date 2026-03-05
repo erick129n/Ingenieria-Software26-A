@@ -1,6 +1,6 @@
 import mysql.connector
 
-connection = mysql.connector.connect(host='localhost', user='root', password='', database='taller')
+connection = mysql.connector.connect(host='localhost', username='root', password='', database='taller_mecanico', port=3308)
 
 cursor = connection.cursor()
 query1 = 'select * from usuarios'

@@ -469,3 +469,666 @@ mysql.connector.errors.InternalError: Unread result found
 2026-03-01 02:04:51 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001D7BFDC5450>
 2026-03-01 02:04:56 | INFO | Usuario encontrado: 4
 2026-03-01 02:04:56 | DEBUG | Usuario buscado:<src.models.usuario.User object at 0x000001D7BFDC6350>
+2026-03-04 11:20:14 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:20:14 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:20:15 | ERROR | Usuario no encontrado
+2026-03-04 11:20:37 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:20:37 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 18, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:20:38 | ERROR | Usuario no encontrado
+2026-03-04 11:25:34 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:25:34 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 18, in open
+    try:
+    
+    ...<4 lines>...
+            database=self.database
+    
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:25:34 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:25:34 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 124, in getMaxId
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:25:49 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:25:49 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:25:49 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:25:49 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 124, in getMaxId
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:26:05 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:26:06 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:26:06 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:26:06 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 20, in save
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:26:07 | ERROR | Usuario no guardado
+2026-03-04 11:26:09 | WARNING | se ah mostrado una contraseña
+2026-03-04 11:26:11 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:26:11 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:26:11 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:26:11 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 20, in save
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:26:12 | ERROR | Usuario no guardado
+2026-03-04 11:31:26 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root@localhost'@'localhost' (using password: NO)
+2026-03-04 11:31:26 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root@localhost'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root@localhost'@'localhost' (using password: NO)
+
+2026-03-04 11:31:26 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:31:26 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 124, in getMaxId
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:31:37 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root@localhost'@'localhost' (using password: NO)
+2026-03-04 11:31:37 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root@localhost'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root@localhost'@'localhost' (using password: NO)
+
+2026-03-04 11:31:37 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:31:37 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 20, in save
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:33:34 | ERROR | Usuario no guardado
+2026-03-04 11:33:58 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:33:58 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 18, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:33:58 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:33:58 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 124, in getMaxId
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:34:09 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:34:09 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 18, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:34:09 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:34:09 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 20, in save
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:34:10 | ERROR | Usuario no guardado
+2026-03-04 11:37:03 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:37:03 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 18, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:37:03 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:37:03 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 124, in getMaxId
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:37:15 | ERROR | Mysql error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+2026-03-04 11:37:15 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 18, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        database=self.database
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+2026-03-04 11:37:15 | ERROR | 'NoneType' object has no attribute 'cursor'
+2026-03-04 11:37:15 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 20, in save
+    self.cursor=self.conn.cursor()
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2026-03-04 11:37:18 | ERROR | Usuario no guardado
+2026-03-04 11:45:13 | ERROR | unsupported operand type(s) for +: 'NoneType' and 'int'
+2026-03-04 11:45:13 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 129, in getMaxId
+    max_id = resultado[0]+1
+             ~~~~~~~~~~~~^~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+
+2026-03-04 11:45:23 | WARNING | se ah mostrado una contraseña
+2026-03-04 11:45:28 | INFO | Usuario guardado:Erick
+2026-03-04 11:49:08 | INFO | Usuario guardado:Manuel
+2026-03-04 11:51:05 | INFO | Usuario guardado:Eduardo
+2026-03-04 11:51:29 | INFO | Usuario guardado:Oswaldo
+2026-03-04 11:53:04 | INFO | Usuario encontrado: 2
+2026-03-04 11:53:04 | DEBUG | Usuario buscado:Manuel
+2026-03-04 11:54:10 | INFO | Usuario encontrado: 2
+2026-03-04 11:54:10 | DEBUG | Usuario buscado:Manuel
+2026-03-04 11:54:59 | INFO | Usuario encontrado: 2
+2026-03-04 11:54:59 | DEBUG | Usuario buscado:Manuel
+2026-03-04 12:03:24 | WARNING | se ah mostrado una contraseña
+2026-03-04 12:03:28 | INFO | Usuario guardado:Eduardo
+2026-03-04 12:04:57 | INFO | Usuario encontrado: 5
+2026-03-04 12:04:57 | DEBUG | Usuario buscado:Eduardo
+2026-03-04 12:05:06 | INFO | Usuario editado:Jilberto
+2026-03-04 12:05:09 | INFO | Usuario encontrado: 5
+2026-03-04 12:05:09 | DEBUG | Usuario buscado:Jilberto
+2026-03-04 12:05:13 | INFO | Usuario eliminado: Jilberto
+2026-03-04 12:05:16 | ERROR | Usuario no encontrado
+2026-03-04 18:21:32 | ERROR | 'list' object has no attribute 'grid_configure'
+2026-03-04 18:21:32 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\loggin_window.py", line 40, in login
+    if self.succefull_login_action(username, password):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\main_window.py", line 88, in handle_login
+    self.pageClient = ClientPage(self.container,self)
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 72, in __init__
+    widget.grid_configure(padx=5, pady=5)
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'grid_configure'
+
+2026-03-04 19:11:24 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'
+2026-03-04 19:58:31 | ERROR | 'ClientPage' object has no attribute 'entry_userID_cliente'
+2026-03-04 19:58:31 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\loggin_window.py", line 40, in login
+    if self.succefull_login_action(username, password):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\main_window.py", line 88, in handle_login
+    self.pageClient = ClientPage(self.container,self)
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 96, in __init__
+    self.configure_state_to_init("disabled")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 112, in configure_state_to_init
+    self.entry_userID_cliente.config(state=control)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ClientPage' object has no attribute 'entry_userID_cliente'. Did you mean: 'combo_userID_cliente'?
+
+2026-03-04 19:58:35 | ERROR | 'ClientPage' object has no attribute 'entry_userID_cliente'
+2026-03-04 19:58:35 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\loggin_window.py", line 40, in login
+    if self.succefull_login_action(username, password):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\main_window.py", line 88, in handle_login
+    self.pageClient = ClientPage(self.container,self)
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 96, in __init__
+    self.configure_state_to_init("disabled")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 112, in configure_state_to_init
+    self.entry_userID_cliente.config(state=control)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ClientPage' object has no attribute 'entry_userID_cliente'. Did you mean: 'combo_userID_cliente'?
+
+2026-03-04 19:58:37 | ERROR | 'NoneType' object is not iterable
+2026-03-04 19:58:37 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 145, in getIdsUsers
+    values=[row[0] for row in slist]
+                              ^^^^^
+TypeError: 'NoneType' object is not iterable
+
+2026-03-04 20:00:23 | ERROR | 'ClientPage' object has no attribute 'entry_userID_cliente'
+2026-03-04 20:00:23 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\loggin_window.py", line 40, in login
+    if self.succefull_login_action(username, password):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\main_window.py", line 88, in handle_login
+    self.pageClient = ClientPage(self.container,self)
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 96, in __init__
+    self.configure_state_to_init("disabled")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 112, in configure_state_to_init
+    self.entry_userID_cliente.config(state=control)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ClientPage' object has no attribute 'entry_userID_cliente'. Did you mean: 'combo_userID_cliente'?
+
+2026-03-04 20:01:25 | ERROR | 'ClientPage' object has no attribute 'entry_userID_cliente'
+2026-03-04 20:01:25 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\loggin_window.py", line 40, in login
+    if self.succefull_login_action(username, password):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\main_window.py", line 88, in handle_login
+    self.pageClient = ClientPage(self.container,self)
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 96, in __init__
+    self.configure_state_to_init("disabled")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 112, in configure_state_to_init
+    self.entry_userID_cliente.config(state=control)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ClientPage' object has no attribute 'entry_userID_cliente'. Did you mean: 'combo_userID_cliente'?
+
+2026-03-04 20:03:12 | ERROR | 'ClientPage' object has no attribute 'entry_userID_cliente'
+2026-03-04 20:03:12 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\loggin_window.py", line 40, in login
+    if self.succefull_login_action(username, password):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\main_window.py", line 88, in handle_login
+    self.pageClient = ClientPage(self.container,self)
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 96, in __init__
+    self.configure_state_to_init("disabled")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 112, in configure_state_to_init
+    self.entry_userID_cliente.config(state=control)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ClientPage' object has no attribute 'entry_userID_cliente'. Did you mean: 'combo_userID_cliente'?
+
+2026-03-04 20:05:50 | ERROR | 'NoneType' object is not iterable
+2026-03-04 20:05:50 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 145, in getIdsUsers
+    values=[row[0] for row in slist]
+                              ^^^^^
+TypeError: 'NoneType' object is not iterable
+
+2026-03-04 20:13:31 | ERROR | 'NoneType' object is not iterable
+2026-03-04 20:13:31 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 145, in getIdsUsers
+    values=[row[0] for row in slist]
+                              ^^^^^
+TypeError: 'NoneType' object is not iterable
+
+2026-03-04 20:16:27 | ERROR | 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'asc' at line 1
+2026-03-04 20:16:27 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'asc' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 144, in getIdsUsers
+    self.cursor.execute(sql)
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'asc' at line 1
+
+2026-03-04 20:53:08 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'

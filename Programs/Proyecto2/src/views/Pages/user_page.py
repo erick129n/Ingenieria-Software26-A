@@ -119,6 +119,7 @@ class UserPage(ttk.Frame):
         self.entryUserName.delete(0, 'end')
         self.entryPassword.delete(0, 'end')
         self.comboBoxPerfil.delete(0, 'end')
+        self.entryBuscarId.delete(0, 'end')
 
     def put_data_user_in_entry(self, usuario):
         self.entryId.insert(0, str(usuario.getUsuario_id()))
@@ -161,6 +162,7 @@ class UserPage(ttk.Frame):
                 self.checkPassword.configure(state=tk.NORMAL)
                 self.buttonEdit.configure(state=tk.NORMAL)
                 self.buttonRemove.configure(state=tk.NORMAL)
+                self.buttonCancel.configure(state=tk.NORMAL)
             else:
                 messagebox.showerror('error', 'Usuario no encontrado')
                 Logger.add_to_log('error', 'Usuario no encontrado')
@@ -234,6 +236,7 @@ class UserPage(ttk.Frame):
         self.config_state_to_init('NORMAL')
         self.delete_entry()
         self.config_state_to_init('disabled')
+        self.buttonNew.configure(state=tk.NORMAL)
 
     def editarUsuario(self):
         self.config_state_to_init('NORMAL')

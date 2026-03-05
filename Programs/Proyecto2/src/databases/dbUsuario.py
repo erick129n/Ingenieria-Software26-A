@@ -135,6 +135,22 @@ class DbUsuario:
 
         return max_id
 
+    def getIdsUsers(self):
+        try:
+            self.con = Conection()
+            self.conn = self.con.open()
+            self.cursor=self.conn.cursor()
+            sql="SELECT id FROM usuarios WHERE NOT perfil = 'Auxiliar' ORDER BY id"
+            self.cursor.execute(sql)
+            slist = self.cursor.fetchall()
+            values=[row[0] for row in slist]
+            return values
+        except Exception as e:
+            Logger.add_to_log('error', str(e))
+            Logger.add_to_log('error', traceback.format_exc())
+        finally:
+            self.close()
+
     def buscar(self, id_usuario):
         try:
             self.con = Conection()

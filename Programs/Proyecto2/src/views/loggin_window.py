@@ -9,10 +9,10 @@ from src.utils.logger import Logger
 class logginWindow(tk.Toplevel):
     en_uso = False
     user = User
-    def __init__(self):
+    logged_in = None
+    def __init__(self, login_action):
         super().__init__()
-
-
+        self.succefull_login_action = login_action
         self.title("Iniciar sesion")
         self.resizable(width=False, height=False)
         self.geometry("250x100")
@@ -30,30 +30,20 @@ class logginWindow(tk.Toplevel):
         self.button_login.grid(row=3, column=1, sticky=tk.E, padx=5, pady=5)
         self.focus_force()
         self.entry_username.focus_force()
-
+        self.lift()
+        self.grab_set()
         self.__class__.en_uso = True
-
     def login(self):
         try:
             username = str(self.entry_username.get())
             password = str(self.entry_password.get())
-            db = DbUsuario()
-            print('se realizara la operacion')
-            exito, usuario = db.Autentificar(username, password)
-            print('la operacion se hizo')
-            if exito:
-                self.user = usuario
-                print('Usuario creado')
+            if self.succefull_login_action(username, password):
                 self.destroy()
-                return True
-
             else:
                 messagebox.showerror("Error", "Usuario no encontrado")
-                return False
         except Exception as e:
             Logger.add_to_log('error',str(e))
             Logger.add_to_log('error',traceback.format_exc())
-            return False
 
     def destroy(self):
         self.__class__.en_uso = False
