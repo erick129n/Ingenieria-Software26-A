@@ -17,7 +17,7 @@ class ClientPage(tk.Frame):
         self.controller = controller
         self.usuario_actual = controller.user
 
-        if self.usuario_actual or self.usuario_actual.getPerfil() == 'Mecanico':
+        if not self.usuario_actual or self.usuario_actual.getPerfil() == 'Mecanico':
             messagebox.showerror("Accesso denegado", "No tienes permisos")
             controller.show_page('MainPage')
             return
@@ -60,7 +60,8 @@ class ClientPage(tk.Frame):
         self.label_rfc_cliente = ttk.Label(self.frameDatosCliente, text="RFC")
         self.entry_rfc_cliente = ttk.Entry(self.frameDatosCliente, width=35)
         self.label_userId_cliente = ttk.Label(self.frameDatosCliente, text='Usuario ID')
-        self.combo_userID_cliente = ttk.Combobox(self.frameDatosCliente, width=15, postcommand=lambda:self.get_data_cliente())
+        self.combo_userID_cliente = ttk.Combobox(self.frameDatosCliente, width=15)
+        self.get_data_cliente()
 
         self.label_id_cliente.grid(row=0, column=0, sticky="e")
         self.entry_id_cliente.grid(row=0, column=1, sticky="w")
@@ -100,7 +101,7 @@ class ClientPage(tk.Frame):
 
         """DESABILITAN LAS OPCIONES AL ENTRAR"""
         self.configure_state_to_init("disabled")
-
+        self.aplicar_restricciones_por_rol()
     def aplicar_restricciones_por_rol(self):
         perfil = self.usuario_actual.getPerfil()
         if perfil == "Administrador":
@@ -127,7 +128,8 @@ class ClientPage(tk.Frame):
         self.buttonCancel.config(state=control)
         self.buttonEdit.config(state=control)
         self.buttonDelete.config(state=control)
-
+        if self.usuario_actual:
+            self.aplicar_restricciones_por_rol()
 
     def configure_state_entry(self, control):
         self.entry_id_cliente.config(state=control)
@@ -151,7 +153,7 @@ class ClientPage(tk.Frame):
         self.entry_telefono_cliente.insert(tk.END, str(cliente.getTelefono()))
         self.entry_email_cliente.insert(tk.END, str(cliente.getEmail()))
         self.entry_rfc_cliente.insert(tk.END, str(cliente.getRfc()))
-        self.combo_userID_cliente.set(str(cliente.getUserID()))
+        self.combo_userID_cliente.set(str(cliente.getUserId()))
 
     def get_data_cliente(self):
         db = DbUsuario()
@@ -175,11 +177,12 @@ class ClientPage(tk.Frame):
             if exito:
                 self.cliente = cliente
                 self.configure_state_to_init('normal')
+                self.delete_entry()
+                self.get_data_cliente()
                 self.put_data_cliente_to_entry(self.cliente)
                 self.configure_state_to_init('disabled')
                 self.buttonNew.config(state=tk.DISABLED)
-                self.buttonEdit.configure(state=tk.NORMAL)
-                self.buttonDelete.configure(state=tk.NORMAL)
+                self.aplicar_restricciones_por_rol()
                 self.buttonCancel.configure(state=tk.NORMAL)
             else:
                 messagebox.showerror("erorr", "Cliente no existe")
@@ -195,6 +198,7 @@ class ClientPage(tk.Frame):
     def cancelar(self):
         self.configure_state_to_init('normal')
         self.delete_entry()
+        self.entry_nombre_buscar.delete(0, tk.END)
         self.configure_state_to_init('disabled')
         self.buttonNew.config(state=tk.NORMAL)
 
@@ -208,6 +212,7 @@ class ClientPage(tk.Frame):
             self.entry_id_cliente.config(state=tk.DISABLED)
             self.buttonSave.config(state=tk.NORMAL)
             self.buttonCancel.config(state=tk.NORMAL)
+            self.aplicar_restricciones_por_rol()
         except Exception as e:
             Logger.add_to_log("erorr", str(e))
             Logger.add_to_log("erorr", traceback.format_exc())
@@ -256,17 +261,20 @@ class ClientPage(tk.Frame):
                 else:
                     messagebox.showerror('error', 'Cliente no guardado')
                     Logger.add_to_log('error', 'Cliente no guardado')
+            self.aplicar_restricciones_por_rol()
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
 
     def editarCliente(self):
         self.configure_state_to_init('normal')
+        self.get_data_cliente()
         self.entry_id_cliente.config(state=tk.DISABLED)
         self.combo_userID_cliente.config(state=tk.DISABLED)
         self.buttonNew.config(state=tk.DISABLED)
         self.buttonEdit.config(state=tk.DISABLED)
         self.buttonDelete.config(state=tk.DISABLED)
+        self.aplicar_restricciones_por_rol()
 
 
     def removerCliente(self):
@@ -287,6 +295,7 @@ class ClientPage(tk.Frame):
                     Logger.add_to_log('error', 'Cliente no borrado')
                     Logger.add_to_log('error', traceback.format_exc())
             else:
+                self.aplicar_restricciones_por_rol()
                 pass
         except Exception as e:
             Logger.add_to_log('error', str(e))

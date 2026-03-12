@@ -1242,3 +1242,54 @@ Traceback (most recent call last):
     ) from err
 mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
 
+2026-03-11 21:27:54 | INFO | existe:False
+2026-03-11 21:29:07 | ERROR | No hay datos
+2026-03-11 21:29:07 | INFO | existe:False
+2026-03-11 21:29:58 | ERROR | No hay datos
+2026-03-11 21:29:58 | INFO | existe:False
+2026-03-11 21:31:05 | INFO | username:user2 password:root
+2026-03-11 21:31:05 | ERROR | No hay datos
+2026-03-11 21:31:05 | INFO | existe:False
+2026-03-11 21:33:58 | INFO | username:user2 password:root
+2026-03-11 21:33:58 | ERROR | 'NoneType' object is not subscriptable
+2026-03-11 21:33:58 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 227, in Autentificar
+    Logger.add_to_log("info", str(row[0]))
+                                  ~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2026-03-11 21:33:58 | INFO | existe:False
+2026-03-11 21:34:53 | INFO | username:user2 password:root
+2026-03-11 21:34:53 | INFO | None
+2026-03-11 21:34:53 | ERROR | No hay datos
+2026-03-11 21:34:53 | INFO | existe:False
+2026-03-11 21:36:06 | INFO | username:oswi26 password:root
+2026-03-11 21:36:06 | INFO | (3, 'Oswaldo', 'oswi26', 'root', 'Administrador')
+2026-03-11 21:36:06 | INFO | existe:True
+2026-03-11 21:36:06 | INFO | Usuario existe
+2026-03-11 21:36:54 | INFO | existe:True
+2026-03-11 21:36:54 | INFO | Usuario existe
+2026-03-11 21:37:16 | INFO | existe:True
+2026-03-11 21:37:16 | INFO | Usuario existe
+2026-03-11 21:41:08 | INFO | existe:True
+2026-03-11 21:41:08 | INFO | Usuario existe
+2026-03-11 21:41:29 | INFO | existe:True
+2026-03-11 21:41:29 | INFO | Usuario existe
+2026-03-11 21:42:22 | INFO | existe:True
+2026-03-11 21:42:22 | INFO | Usuario existe
+2026-03-11 21:46:27 | INFO | existe:True
+2026-03-11 21:46:27 | INFO | Usuario existe
+2026-03-11 21:54:06 | INFO | existe:True
+2026-03-11 21:54:06 | INFO | Usuario existe
+2026-03-11 21:55:56 | INFO | existe:True
+2026-03-11 21:55:56 | INFO | Usuario existe
+2026-03-11 22:01:58 | INFO | existe:True
+2026-03-11 22:01:58 | INFO | Usuario existe
+2026-03-11 22:04:11 | INFO | existe:True
+2026-03-11 22:04:11 | INFO | Usuario existe
+2026-03-11 22:07:17 | INFO | existe:True
+2026-03-11 22:07:17 | INFO | Usuario existe
+2026-03-11 22:22:49 | INFO | existe:True
+2026-03-11 22:22:49 | INFO | Usuario existe
+2026-03-11 22:24:43 | INFO | existe:True
+2026-03-11 22:24:43 | INFO | Usuario existe

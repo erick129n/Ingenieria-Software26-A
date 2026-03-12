@@ -234,6 +234,7 @@ class DbUsuario:
                 aux.setPerfil(row[4])
                 return True, aux
             else:
+                Logger.add_to_log('error', "No hay datos")
                 return False, None
 
         except mysql.connector.Error as err:

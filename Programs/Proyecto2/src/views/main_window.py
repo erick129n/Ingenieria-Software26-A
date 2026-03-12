@@ -28,7 +28,7 @@ class MainWindow(tk.Tk):
         self.label_principal = None
         self.user = None
         self.loggin=None
-        self.pagina_pendiente = {}
+        self.pagina_pendiente = None
         #configuracion de la barra de menu
         self.barra_menu = tk.Menu(self)
         self.menu_file = tk.Menu(self.barra_menu, tearoff=False) #usuarios
