@@ -15,6 +15,12 @@ class ClientPage(tk.Frame):
     def __init__(self, master, controller):
         tk.Frame.__init__(self, master)
         self.controller = controller
+        self.usuario_actual = controller.user
+
+        if self.usuario_actual or self.usuario_actual.getPerfil() == 'Mecanico':
+            messagebox.showerror("Accesso denegado", "No tienes permisos")
+            controller.show_page('MainPage')
+            return
         self.cliente = Cliente()
         self.usuario = User() # verificar si se usa
         self.seEditaElCliente = False
@@ -95,6 +101,13 @@ class ClientPage(tk.Frame):
         """DESABILITAN LAS OPCIONES AL ENTRAR"""
         self.configure_state_to_init("disabled")
 
+    def aplicar_restricciones_por_rol(self):
+        perfil = self.usuario_actual.getPerfil()
+        if perfil == "Administrador":
+            pass
+        elif perfil == "Auxiliar":
+            self.buttonDelete.config(state=tk.DISABLED)
+            self.buttonEdit.config(state=tk.DISABLED)
     def activa_boton_busqueda_key(self, content):
         if all(content.isalpha() or c.isspace() for c in content):
             self.buttonBuscar.config(state=tk.NORMAL)

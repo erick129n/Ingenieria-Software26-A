@@ -51,8 +51,6 @@ class User:
         return self.perfil == Perfil.ADMINISTRADOR.value
 
 
-
-
     def puede_editar(self):
         return self.es_administrador()
     def puede_buscar(self):
