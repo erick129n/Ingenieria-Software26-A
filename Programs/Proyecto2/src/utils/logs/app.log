@@ -1132,3 +1132,79 @@ Traceback (most recent call last):
 mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'asc' at line 1
 
 2026-03-04 20:53:08 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'
+2026-03-11 11:21:32 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'
+2026-03-11 11:21:56 | ERROR | invalid literal for int() with base 10: ''
+2026-03-11 11:21:56 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 212, in salvarCliente
+    idUser = int(self.combo_userID_cliente.get())
+ValueError: invalid literal for int() with base 10: ''
+
+2026-03-11 11:21:58 | ERROR | invalid literal for int() with base 10: ''
+2026-03-11 11:21:58 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 212, in salvarCliente
+    idUser = int(self.combo_userID_cliente.get())
+ValueError: invalid literal for int() with base 10: ''
+
+2026-03-11 11:22:14 | ERROR | 'Cliente' object has no attribute 'getUsuarioId'
+2026-03-11 11:22:15 | ERROR | Cliente no guardado
+2026-03-11 11:22:18 | ERROR | 'Cliente' object has no attribute 'getUsuarioId'
+2026-03-11 11:22:19 | ERROR | Cliente no guardado
+2026-03-11 11:23:59 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'
+2026-03-11 11:26:44 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'
+2026-03-11 11:37:05 | ERROR | NoneType: None
+
+2026-03-11 11:40:49 | ERROR | NoneType: None
+
+2026-03-11 11:41:24 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'
+2026-03-11 11:43:05 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'
+2026-03-11 11:43:28 | ERROR | 'Cliente' object has no attribute 'getUsuarioId'
+2026-03-11 11:43:29 | ERROR | Cliente no guardado
+2026-03-11 11:43:32 | ERROR | 'Cliente' object has no attribute 'getUsuarioId'
+2026-03-11 11:43:33 | ERROR | Cliente no guardado
+2026-03-11 11:46:51 | ERROR | 'Cliente' object has no attribute 'getUsuarioId'
+2026-03-11 11:48:26 | ERROR | Cliente no guardado
+2026-03-11 11:49:53 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'
+2026-03-11 11:50:13 | ERROR | 'Cliente' object has no attribute 'getUsuarioId'
+2026-03-11 11:50:16 | ERROR | Cliente no guardado
+2026-03-11 11:53:15 | ERROR | 1054 (42S22): Unknown column 'id' in 'field list'
+2026-03-11 11:57:54 | ERROR | 'Cliente' object has no attribute 'getUsuarioId'
+2026-03-11 11:57:56 | ERROR | Cliente no guardado
+2026-03-11 11:59:12 | ERROR | 'Cliente' object has no attribute 'getUsuarioId'
+2026-03-11 12:01:16 | ERROR | Cliente no guardado
+2026-03-11 12:01:51 | ERROR | 'Cliente' object has no attribute 'getUsuarioId'
+2026-03-11 12:02:49 | ERROR | Cliente no guardado
+2026-03-11 12:03:20 | ERROR | 1062 (23000): Duplicate entry '1' for key 'usuario_id_2'
+2026-03-11 12:03:50 | ERROR | Cliente no guardado
+2026-03-11 12:07:43 | ERROR | 1062 (23000): Duplicate entry '1' for key 'usuario_id_2'
+2026-03-11 12:07:45 | ERROR | Cliente no guardado
+2026-03-11 12:07:49 | ERROR | 1062 (23000): Duplicate entry '1' for key 'usuario_id_2'
+2026-03-11 12:07:51 | ERROR | Cliente no guardado
+2026-03-11 12:16:55 | ERROR | invalid literal for int() with base 10: ''
+2026-03-11 12:16:55 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\client_page.py", line 213, in salvarCliente
+    idUser = int(self.combo_userID_cliente.get())
+ValueError: invalid literal for int() with base 10: ''
+
+2026-03-11 12:16:57 | ERROR | 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+2026-03-11 12:16:58 | ERROR | Cliente no guardado
+2026-03-11 12:17:14 | ERROR | 'Cliente' object has no attribute 'getUsuario_id'
+2026-03-11 12:17:14 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 108, in borrar
+    sql="DELETE FROM usuarios WHERE id={}".format(usuario.getUsuario_id())
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Cliente' object has no attribute 'getUsuario_id'
+
+2026-03-11 12:17:15 | ERROR | Cliente no borrado
+2026-03-11 12:17:18 | ERROR | 'Cliente' object has no attribute 'getUsuario_id'
+2026-03-11 12:17:18 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 108, in borrar
+    sql="DELETE FROM usuarios WHERE id={}".format(usuario.getUsuario_id())
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Cliente' object has no attribute 'getUsuario_id'
+
+2026-03-11 12:17:20 | ERROR | Cliente no borrado
+2026-03-11 12:19:10 | ERROR | Cliente no borrado
+2026-03-11 13:02:22 | ERROR | 1054 (42S22): Unknown column 'id' in 'where clause'
+2026-03-11 13:02:23 | ERROR | Cliente no borrado
+2026-03-11 13:02:23 | ERROR | NoneType: None
+

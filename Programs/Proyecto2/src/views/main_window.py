@@ -8,6 +8,7 @@ from src.utils.logger import Logger
 from src.views.loggin_window import logginWindow
 from src.views.Pages.user_page import UserPage
 from src.views.Pages.client_page import ClientPage
+from src.views.Pages.vehicle_page import VehiculoPage
 from src.views.Pages.main_page import MainPage
 
 class MainWindow(tk.Tk):
@@ -23,8 +24,10 @@ class MainWindow(tk.Tk):
         self.container =None
         self.pageUser = None
         self.pageClient = None
+        self.pageVehiculo = None
         self.label_principal = None
         self.user = None
+        self.loggin=None
 
         #configuracion de la barra de menu
         self.barra_menu = tk.Menu(self)
@@ -88,12 +91,12 @@ class MainWindow(tk.Tk):
             self.pageClient = ClientPage(self.container,self)
         return exito
 
-
     def menu_press_cliente(self):
-        loggin = logginWindow(self.handle_login)
+        self.loggin = logginWindow(self.handle_login)
 
     def menu_press_vehiculos(self):
-        messagebox.showwarning("ADVERTENCIA", "Funcion no implementada")
+        self.limpiar_contenedor()
+        self.pageVehiculo = VehiculoPage(self.container,self)
     def menu_press_reparaciones(self):
         messagebox.showwarning("ADVERTENCIA", "Funcion no implementada")
     def menu_press_piezas(self):

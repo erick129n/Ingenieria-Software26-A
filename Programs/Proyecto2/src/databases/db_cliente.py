@@ -1,8 +1,5 @@
 import traceback
-from enum import nonmember
 
-import mysql
-import mysql.connector
 from src.databases.conection2 import Conection
 from src.utils.logger import Logger
 from src.models.cliente import Cliente
@@ -27,13 +24,15 @@ class DBCliente:
                    cliente.getTelefono(),
                    cliente.getEmail(),
                    cliente.getRfc(),
-                   cliente.getUsuarioId())
+                   cliente.getUserId())
             self.cursor.execute(sql, datos)
             self.conn.commit()
             self.con.close()
+            return True
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('erorr', traceback.format_exc())
+            return False
         finally:
             self.con.close()
 
@@ -47,12 +46,12 @@ class DBCliente:
             row = self.cursor.fetchone()
             if row:
                 aux = Cliente()
-                aux.idCliente = row[0]
-                aux.nombre = row[1]
-                aux.telefono = row[2]
-                aux.email = row[3]
-                aux.rfc = row[4]
-                aux.usuario_id = row[5]
+                aux.setId_cliente(row[0])
+                aux.setNombre(row[1])
+                aux.setTelefono(row[2])
+                aux.setEmail(row[3])
+                aux.setRfc(row[4])
+                aux.setUserId(row[5])
                 return True, aux
             else:
                 return False, None
@@ -102,7 +101,7 @@ class DBCliente:
             self.con = Conection()
             self.conn = self.con.open()
             self.cursor = self.conn.cursor()
-            sql="DELETE FROM clientes WHERE id = {}".format(cliente.getIdCliente())
+            sql="DELETE FROM clientes WHERE id_cliente = {}".format(cliente.getIdCliente())
             self.cursor.execute(sql)
             self.conn.commit()
             return self.cursor.rowcount > 0
@@ -119,7 +118,7 @@ class DBCliente:
             self.con = Conection()
             self.conn = self.con.open()
             self.cursor = self.conn.cursor()
-            sql="SELECT MAX(id) FROM clientes"
+            sql="SELECT MAX(id_cliente) AS id_cliente FROM clientes"
             self.cursor.execute(sql)
             resultado = self.cursor.fetchone()
             if resultado:

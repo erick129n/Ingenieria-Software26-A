@@ -96,11 +96,11 @@ class ClientPage(tk.Frame):
         self.configure_state_to_init("disabled")
 
     def activa_boton_busqueda_key(self, content):
-        if content.isalpha():
+        if all(content.isalpha() or c.isspace() for c in content):
             self.buttonBuscar.config(state=tk.NORMAL)
         else:
             self.buttonBuscar.config(state=tk.DISABLED)
-        return content.isalpha() or content == ""
+        return True
 
     def configure_state_to_init(self, control):
         self.buttonBuscar.config(state= control)
@@ -133,12 +133,12 @@ class ClientPage(tk.Frame):
         self.combo_userID_cliente.delete(0, tk.END)
 
     def put_data_cliente_to_entry(self, cliente):
-        self.entry_id_cliente.insert(tk.END, str(cliente))
-        self.entry_nombre_cliente.insert(tk.END, str(cliente.nombre))
-        self.entry_telefono_cliente.insert(tk.END, str(cliente.telefono))
-        self.entry_email_cliente.insert(tk.END, str(cliente.email))
-        self.entry_rfc_cliente.insert(tk.END, str(cliente.rfc))
-        self.entry_userID_cliente.insert(tk.END, str(cliente.userID))
+        self.entry_id_cliente.insert(tk.END, str(cliente.getIdCliente()))
+        self.entry_nombre_cliente.insert(tk.END, str(cliente.getNombre()))
+        self.entry_telefono_cliente.insert(tk.END, str(cliente.getTelefono()))
+        self.entry_email_cliente.insert(tk.END, str(cliente.getEmail()))
+        self.entry_rfc_cliente.insert(tk.END, str(cliente.getRfc()))
+        self.combo_userID_cliente.set(str(cliente.getUserID()))
 
     def get_data_cliente(self):
         db = DbUsuario()
@@ -171,6 +171,7 @@ class ClientPage(tk.Frame):
             else:
                 messagebox.showerror("erorr", "Cliente no existe")
                 Logger.add_to_log("erorr", 'Cliente no existe')
+                Logger.add_to_log("error", traceback.format_exc())
                 self.entry_nombre_buscar.delete(0, tk.END)
                 self.entry_nombre_buscar.focus()
 
@@ -210,6 +211,7 @@ class ClientPage(tk.Frame):
             email = self.entry_email_cliente.get()
             rfc = self.entry_rfc_cliente.get()
             idUser = int(self.combo_userID_cliente.get())
+            print(idUser)
             client = Cliente(id_cliente, nombre, telefono, email, rfc, idUser)
             db = DBCliente()
             if self.seEditaElCliente:
@@ -224,8 +226,8 @@ class ClientPage(tk.Frame):
                         Logger.add_to_log("info", 'Cliente editado:'+str(client.getNombre()))
                         return
                     else:
-                        messagebox.showerror('error', 'Cliente no guardado')
-                        Logger.add_to_log('error', 'Cliente no guardado')
+                        messagebox.showerror('error', 'Cliente no editado')
+                        Logger.add_to_log('error', 'Cliente no editado')
 
                 except Exception as e:
                     Logger.add_to_log('error', str(e))
@@ -237,6 +239,7 @@ class ClientPage(tk.Frame):
                     Logger.add_to_log('succes', 'Cliente guardado')
                     self.delete_entry()
                     self.configure_state_to_init('disabled')
+                    self.entry_id_cliente.config(state=tk.DISABLED)
                 else:
                     messagebox.showerror('error', 'Cliente no guardado')
                     Logger.add_to_log('error', 'Cliente no guardado')
@@ -257,7 +260,7 @@ class ClientPage(tk.Frame):
         try:
             resultado = messagebox.askyesno('Remover', 'Estas seguro de remover el cliente?')
             if resultado:
-                db = DbUsuario()
+                db = DBCliente()
                 exito = db.borrar(self.cliente)
                 if exito:
                     self.configure_state_entry('normal')
@@ -269,6 +272,7 @@ class ClientPage(tk.Frame):
                 else:
                     messagebox.showerror('error', 'Cliente no borrado')
                     Logger.add_to_log('error', 'Cliente no borrado')
+                    Logger.add_to_log('error', traceback.format_exc())
             else:
                 pass
         except Exception as e:

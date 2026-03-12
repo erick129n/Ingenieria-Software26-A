@@ -1,3 +1,8 @@
+from enum import Enum
+class Perfil(Enum):
+    ADMINISTRADOR = 'Administrador'
+    MECANICO = 'Mecanico'
+    AUXILIAR = 'Auxiliar'
 class User:
     def __init__(self, user_id=None, nombre=None, username=None, password=None, perfil=None):
         self.user_id = user_id
@@ -37,3 +42,21 @@ class User:
 
     def setPerfil(self, perfil):
         self.perfil = perfil
+
+    def es_mecanico(self):
+        return self.perfil == Perfil.MECANICO.value
+    def es_auxiliar(self):
+        return self.perfil == Perfil.AUXILIAR.value
+    def es_administrador(self):
+        return self.perfil == Perfil.ADMINISTRADOR.value
+    def puede_editar(self):
+        return self.es_administrador() or self.es_mecanico()
+    def puede_buscar(self):
+        return True
+
+    def puede_asignar_mecanicos(self):
+        return self.es_administrador() or self.es_mecanico()
+    def puede_ver_clientes(self):
+        return True
+    def puede_crear_clientes(self):
+        return self.es_administrador() or self.es_mecanico()

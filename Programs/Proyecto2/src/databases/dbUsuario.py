@@ -28,10 +28,38 @@ class DbUsuario:
             self.conn.commit()
             self.con.close()
             return True
-        except Exception as e:
-            Logger.add_to_log('error', str(e))
+        except mysql.connector.Error as e:
+            Logger.add_to_log('error', 'Error MysQl en guardar:'+str(e))
             Logger.add_to_log('error', traceback.format_exc())
             return False
+        finally:
+            self.close()
+
+    def getMecanicos(self):
+        try:
+            self.con = Conection()
+            self.conn = self.con.open()
+            self.cursor=self.conn.cursor()
+            sql="SELECT * FROM usuarios WHERE perfil = 'Mecanicos' ORDER BY id"
+            self.cursor.execute(sql)
+            return self.cursor.fetchall()
+        except Exception as e:
+            Logger.add_to_log('error', str(e))
+            return []
+        finally:
+            self.close()
+
+    def getAllUsers(self):
+        try:
+            self.con = Conection()
+            self.conn = self.con.open()
+            self.cursor = self.conn.cursor()
+            sql = "SELECT id FROM usuarios ORDER BY id"
+            self.cursor.execute(sql)
+            return self.cursor.fetchall()
+        except Exception as e:
+            Logger.add_to_log('error', str(e))
+            return []
         finally:
             self.close()
 
@@ -91,8 +119,8 @@ class DbUsuario:
 
             return self.cursor.rowcount > 0
 
-        except Exception as e:
-            Logger.add_to_log('error', str(e))
+        except mysql.connector.Error as e:
+            Logger.add_to_log('error','Erorr Mysql al editar:'+ str(e))
             Logger.add_to_log('error', traceback.format_exc())
             return False
         finally:
@@ -105,10 +133,13 @@ class DbUsuario:
             self.conn = self.con.open()
             self.cursor=self.conn.cursor()
 
-            sql="DELETE FROM usuarios WHERE id={}".format(usuario.getUsuario_id())
+            sql="DELETE FROM usuarios WHERE id={}".format(usuario.getUserId())
             self.cursor.execute(sql)
             self.conn.commit()
             return self.cursor.rowcount > 0
+        except mysql.connector.IntegrityError:
+            Logger.add_to_log('warning', 'No se puede borrar porque tiene registros asociados')
+            return False
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
@@ -125,7 +156,7 @@ class DbUsuario:
             sql="SELECT MAX(id) AS id FROM usuarios"
             self.cursor.execute(sql)
             resultado = self.cursor.fetchone()
-            if resultado:
+            if resultado and resultado[0]:
                 max_id = resultado[0]+1
         except Exception as e:
             Logger.add_to_log('error', str(e))
@@ -172,7 +203,7 @@ class DbUsuario:
                 return True, aux
             else:
                 return False, None
-        except Exception as e:
+        except mysql.connector.Error as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
             return False, None
@@ -217,9 +248,13 @@ class DbUsuario:
 
 
     def close(self):
-        if self.cursor:
-            self.cursor.close()
-        if self.conn:
-            self.conn.close()
-        if self.con:
-            self.con.close()
+        try:
+            if self.cursor:
+                self.cursor.close()
+            if self.conn:
+                self.conn.close()
+            if self.con:
+                self.con.close()
+        except Exception as e:
+            Logger.add_to_log('error', str(e))
+            Logger.add_to_log('error', traceback.format_exc())
