@@ -1208,3 +1208,37 @@ AttributeError: 'Cliente' object has no attribute 'getUsuario_id'
 2026-03-11 13:02:23 | ERROR | Cliente no borrado
 2026-03-11 13:02:23 | ERROR | NoneType: None
 
+2026-03-11 20:36:29 | ERROR | Mysql error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+2026-03-11 20:36:29 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3308' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        port=self.port
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+

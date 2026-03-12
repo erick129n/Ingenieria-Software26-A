@@ -9,9 +9,15 @@ from src.models.usuario import User
 from src.utils.logger import Logger
 
 class UserPage(ttk.Frame):
-    def __init__(self, master, controller ):
+    def __init__(self, master, controller):
         super().__init__(master)
         self.controller = controller
+        self.usuario_actual = controller.user
+
+        if not self.usuario_actual or self.usuario_actual.getPerfil() != "Administrador":
+            messagebox.showerror("Acceso denegado", 'No tienes permisos para acceder')
+            controller.show_page('MainPage')
+            return
 
         self.usuario = User()
         self.seEditaElUsuario = False
@@ -247,6 +253,9 @@ class UserPage(ttk.Frame):
         self.seEditaElUsuario = True
 
     def removeUsuario(self):
+        if self.usuario.getUsuario_id() == self.usuario_actual.getUsuario_id():
+            messagebox.showinfo('Error', 'No puedes elimarte')
+            return
         resultado = messagebox.askyesno('Borrar', 'Estas seguro de eliminar este usuario?')
         try:
             if resultado:
