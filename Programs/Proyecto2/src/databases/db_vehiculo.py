@@ -1,7 +1,7 @@
 import traceback
-
+import mysql
+import mysql.connector
 from src.databases.conection2 import Conection
-from enum import nonmember
 from src.utils.logger import Logger
 from src.models.vehiculo import Vehiculo
 
@@ -32,13 +32,13 @@ class DbVehiculo:
                         vehiculo.getModelo())
             self.cursor.execute(sql, datos)
             self.conn.commit()
-        except Exception as e:
+        except mysql.connector.Error as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
         finally:
             self.conn.close()
 
-    def search(self, vehiculo):
+    def search(self, matricula):
         try:
             aux =None
             self.con = Conection()
@@ -48,18 +48,17 @@ class DbVehiculo:
                           vehiculos.cliente_id,
                           vehiculos.marca,
                           vehiculos.modelo,
-                          clientes.nombre FROM vehiculos JOIN clientes ON vehiculos.cliente_id = clientes.id AND vehiculos.matricula = %s
+                          clientes.nombre FROM vehiculos JOIN clientes ON vehiculos.cliente_id = clientes.id_cliente AND vehiculos.matricula = %s
             ''')
-            self.cursor.execute(sql,(vehiculo.getMatricula(),))
+            self.cursor.execute(sql,(matricula,))
             row = self.cursor.fetchone()
             if row:
                 aux = Vehiculo()
-                aux.matricula = row[0],
-                aux.cliente_id = row[1],
-                aux.marca = row[2],
-                aux.modelo = row[3],
-                aux.nombre = row[4],
-                self.nombre_cliente = row[5]
+                aux.setMatricula(row[0]),
+                aux.setId_cliente(row[1]),
+                aux.setMarca(row[2]),
+                aux.setModelo(row[3]),
+                self.nombre_cliente = row[4]
                 self.lista.append(aux)
                 return True, aux
             else:
@@ -67,7 +66,7 @@ class DbVehiculo:
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
-            return False, aux
+            return False, None
         finally:
             self.conn.close()
 
@@ -94,7 +93,7 @@ class DbVehiculo:
             self.conn.commit()
 
             return self.cursor.rowcount > 0
-        except Exception as e:
+        except mysql.connector.Error as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
         finally:
@@ -105,15 +104,35 @@ class DbVehiculo:
             self.con = Conection()
             self.conn=self.con.open()
             self.cursor=self.conn.cursor()
-            sql=('''SELECT * FROM vehiculos WHERE matricula = %s''')
+            sql=('''SELECT * FROM vehiculos 
+                    WHERE matricula = %s''')
             self.cursor.execute(sql,(vehiculo.getMatricula(),))
             self.conn.commit()
             return self.cursor.rowcount > 0
+        except mysql.connector.IntegrityError as e:
+            Logger.add_to_log('error', str(e))
+            Logger.add_to_log('error', traceback.format_exc())
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
         finally:
             self.conn.close()
+
+    def get_name_clintes(self):
+        try:
+            self.con = Conection()
+            self.conn=self.con.open()
+            self.cursor=self.conn.cursor()
+            sql=('''SELECT nombre FROM clientes ORDER BY id_cliente''')
+            self.cursor.execute(sql)
+            slist = self.cursor.fetchall()
+            values = [row[0] for row in slist]
+            return values
+        except mysql.connector.Error as e:
+            Logger.add_to_log('error', str(e))
+            Logger.add_to_log('error', traceback.format_exc())
+        finally:
+            self.close()
 
     def close(self):
         if self.conn:

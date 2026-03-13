@@ -1293,3 +1293,159 @@ TypeError: 'NoneType' object is not subscriptable
 2026-03-11 22:22:49 | INFO | Usuario existe
 2026-03-11 22:24:43 | INFO | existe:True
 2026-03-11 22:24:43 | INFO | Usuario existe
+2026-03-12 21:06:43 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:06:43 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:06:53 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:06:53 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:07:06 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:07:06 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:08:36 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:08:36 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:08:48 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:08:48 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:10:12 | ERROR | 1054 (42S22): Unknown column 'clientes.id' in 'on clause'
+2026-03-12 21:10:12 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Unknown column 'clientes.id' in 'on clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(matricula,))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'clientes.id' in 'on clause'
+
+2026-03-12 21:12:14 | ERROR | 1054 (42S22): Unknown column 'clientes.id' in 'on clause'
+2026-03-12 21:12:14 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Unknown column 'clientes.id' in 'on clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(matricula,))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'clientes.id' in 'on clause'
+
+2026-03-12 21:13:49 | ERROR | tuple index out of range
+2026-03-12 21:13:49 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 62, in search
+    self.nombre_cliente = row[5]
+                          ~~~^^^
+IndexError: tuple index out of range
+
+2026-03-12 21:26:00 | ERROR | 1054 (42S22): Unknown column 'id_vehiculo' in 'field list'
+2026-03-12 21:26:00 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Unknown column 'id_vehiculo' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 128, in getMaxId
+    self.cursor.execute(sql)
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'id_vehiculo' in 'field list'
+

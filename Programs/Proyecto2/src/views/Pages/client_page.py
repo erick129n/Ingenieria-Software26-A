@@ -229,7 +229,6 @@ class ClientPage(tk.Frame):
             email = self.entry_email_cliente.get()
             rfc = self.entry_rfc_cliente.get()
             idUser = int(self.combo_userID_cliente.get())
-            print(idUser)
             client = Cliente(id_cliente, nombre, telefono, email, rfc, idUser)
             db = DBCliente()
             if self.seEditaElCliente:

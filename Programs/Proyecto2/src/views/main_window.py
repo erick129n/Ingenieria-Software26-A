@@ -1,8 +1,6 @@
 import tkinter as tk
 import traceback
 from tkinter import messagebox
-from tkinter.messagebox import showwarning
-
 from databases.dbUsuario import DbUsuario
 from src.utils.logger import Logger
 from src.views.loggin_window import logginWindow
@@ -178,11 +176,7 @@ class MainWindow(tk.Tk):
         self.requerir_login('ClientPage')
 
     def menu_press_vehiculos(self):
-        if self.user:
-            self.limpiar_contenedor()
-            self.pageVehiculo = VehiculoPage(self.container,self)
-        else:
-            messagebox.showwarning("Acceso denegado", "Debe iniciar sesion.")
+        self.requerir_login('VehiculoPage')
 
     def menu_press_reparaciones(self):
         messagebox.showwarning("ADVERTENCIA", "Funcion no implementada")
