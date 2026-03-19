@@ -27,14 +27,19 @@ class DbVehiculo:
                                 marca,
                                 modelo) VALUES(%s,%s,%s,%s)''')
             datos=(vehiculo.getMatricula(),
-                        vehiculo.getCliente(),
+                        vehiculo.getIdCliente(),
                         vehiculo.getMarca(),
                         vehiculo.getModelo())
             self.cursor.execute(sql, datos)
             self.conn.commit()
+            return True
         except mysql.connector.Error as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+        except Exception as e:
+            Logger.add_to_log('error', str(e))
+            Logger.add_to_log('error', traceback.format_exc())
+            return False
         finally:
             self.conn.close()
 
@@ -85,7 +90,7 @@ class DbVehiculo:
                  nombre = %s
                  WHERE matricula = %s''')
             datos=(vehiculo.getMatricula(),
-                   vehiculo.getCliente(),
+                   vehiculo.getIdCliente(),
                    vehiculo.getMarca(),
                    vehiculo.getModelo()
                    )
@@ -104,7 +109,7 @@ class DbVehiculo:
             self.con = Conection()
             self.conn=self.con.open()
             self.cursor=self.conn.cursor()
-            sql=('''SELECT * FROM vehiculos 
+            sql=('''DELETE FROM vehiculos 
                     WHERE matricula = %s''')
             self.cursor.execute(sql,(vehiculo.getMatricula(),))
             self.conn.commit()

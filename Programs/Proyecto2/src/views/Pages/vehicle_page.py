@@ -1,11 +1,11 @@
 import sqlite3
-import tkinter as tk
 import traceback
 from tkinter import messagebox
 from tkinter import ttk
 from src.models.vehiculo import Vehiculo
 from src.models.cliente import Cliente
 from src.databases.db_vehiculo import DbVehiculo
+from src.databases.db_cliente import DBCliente
 from utils.logger import Logger
 
 
@@ -23,11 +23,11 @@ class VehiculoPage(ttk.Frame):
         self.vehiculo = Vehiculo()
         self.cliente = Cliente()
         self.lista_nombres = []
-        self.seEditaElVehiculo =None
+        self.seEditaElVehiculo = None
+        self.client = Cliente()
         self.frameBuscar = ttk.Frame(master)
         self.frameDatos = ttk.Frame(master)
         self.frameButtons = ttk.Frame(master)
-
 
         master.columnconfigure(0, weight=1)
         master.rowconfigure(0, weight=1)
@@ -37,7 +37,6 @@ class VehiculoPage(ttk.Frame):
         self.frameBuscar.grid(row=0, column=0, rowspan=5, columnspan=5, sticky='ns')
         self.frameDatos.grid(row=1, column=0, rowspan=5, columnspan=5, sticky='ns')
         self.frameButtons.grid(row=2, column=0, columnspan=5, sticky='s')
-
 
         vcmd = (self.register(self.activa_boton_busqueda_key), '%P')
         #configuracion de busqueda
@@ -50,6 +49,7 @@ class VehiculoPage(ttk.Frame):
         self.entry_matricula = ttk.Entry(self.frameDatos)
         self.label_cliente = ttk.Label(self.frameDatos, text='Cliente')
         self.combo_cliente = ttk.Combobox(self.frameDatos)
+        self.combo_cliente.bind("<<ComboboxSelected>>", self.on_cliente_seleccionado)
         self.entry_id_cliente = ttk.Entry(self.frameDatos, state='disabled', width=10)
         self.label_marca = ttk.Label(self.frameDatos, text='Marca')
         self.entry_marca = ttk.Entry(self.frameDatos)
@@ -111,8 +111,9 @@ class VehiculoPage(ttk.Frame):
         elif perfil == "Auxiliar":
             self.button_delete.config(state='disabled')
             self.button_edit.config(state="disabled")
+
     def configure_state_to_init(self, control):
-        self.button_buscar.config(state= control)
+        self.button_buscar.config(state=control)
         self.entry_matricula.config(state=control)
         self.combo_cliente.config(state=control)
         self.entry_marca.config(state=control)
@@ -141,16 +142,32 @@ class VehiculoPage(ttk.Frame):
         self.entry_id_cliente.delete(0, 'end')
 
     def put_data_vehiculo_to_entry(self, nombre_cliente=None):
-        self.entry_matricula.insert(0,str(self.vehiculo.getMatricula()))
-        self.entry_marca.insert(0,str(self.vehiculo.getMarca()))
-        self.entry_modelo.insert(0,str(self.vehiculo.getModelo()))
+        self.entry_matricula.insert(0, str(self.vehiculo.getMatricula()))
+        self.entry_marca.insert(0, str(self.vehiculo.getMarca()))
+        self.entry_modelo.insert(0, str(self.vehiculo.getModelo()))
         self.combo_cliente.set(str(nombre_cliente))
-        self.entry_id_cliente.insert(0,str(self.vehiculo.getIdCliente()))
+        self.entry_id_cliente.insert(0, str(self.vehiculo.getIdCliente()))
 
     def get_data_cliente(self):
         db = DbVehiculo()
         try:
             self.combo_cliente['values'] = db.get_name_clintes()
+        except Exception as e:
+            Logger.add_to_log("erorr", str(e))
+            Logger.add_to_log("erorr", traceback.format_exc())
+
+    def on_cliente_seleccionado(self, event):
+        nombre = self.combo_cliente.get()
+        try:
+            dbcli = DBCliente()
+            exito, cliente = dbcli.search(nombre)
+            if exito:
+                self.entry_id_cliente.config(state='normal')
+                self.entry_id_cliente.delete(0, 'end')
+                self.entry_id_cliente.insert(0, str(cliente.getIdCliente()))
+                self.entry_id_cliente.config(state='disabled')
+            else:
+                Logger.add_to_log("erorr", f"Cliente no encontrado: {nombre}")
         except Exception as e:
             Logger.add_to_log("erorr", str(e))
             Logger.add_to_log("erorr", traceback.format_exc())
@@ -198,8 +215,7 @@ class VehiculoPage(ttk.Frame):
         try:
             self.configure_state_to_init('normal')
             self.delete_entry()
-            self.entry_id_cliente.config(state='disabled')
-            db= DbVehiculo()
+            self.entry_id_cliente.config(state='normal')
             self.button_save.config(state='normal')
             self.button_cancel.config(state='normal')
             self.aplicar_restriccion_por_rol()
@@ -216,22 +232,32 @@ class VehiculoPage(ttk.Frame):
     def salvar_vehiculo(self):
         try:
             self.configure_state_entry('normal')
-            matricula = (int(self.entry_matricula.get()))
-            cliente = str(self.entry_id_cliente.get())
+            matricula = str(self.entry_matricula.get())
+
+            # ── CORREGIDO: leer el ID directamente desde entry_id_cliente ──
+            self.entry_id_cliente.config(state='normal')
+            id_cliente_raw = self.entry_id_cliente.get()
+            self.entry_id_cliente.config(state='disabled')
+
+            if not id_cliente_raw:
+                messagebox.showerror("error", "Debes seleccionar un cliente")
+                return
+
+            cliente = int(id_cliente_raw)
             marca = str(self.entry_marca.get())
             modelo = str(self.entry_modelo.get())
-            vehiculo = Vehiculo(matricula, cliente, marca, modelo)
+            self.vehiculo = Vehiculo(matricula, cliente, marca, modelo)
             db = DbVehiculo()
             if self.seEditaElVehiculo:
                 try:
-                    if db.editar(vehiculo):
+                    if db.editar(self.vehiculo):
                         messagebox.showinfo("succes", "Vehiculo editado")
                         Logger.add_to_log("succes", "Vehiculo editado")
                         self.delete_entry()
                         self.entry_id_buscar.delete(0, 'end')
                         self.configure_state_to_init('disabled')
                         self.seEditaElVehiculo = False
-                        Logger.add_to_log("succes", "Vehiculo editado:" +str(vehiculo))
+                        Logger.add_to_log("succes", "Vehiculo editado:" + str(self.vehiculo))
                         return
                     else:
                         messagebox.showerror("erorr", "Vehiculo no editado")
@@ -240,10 +266,11 @@ class VehiculoPage(ttk.Frame):
                     self.configure_state_to_init('normal')
                     self.delete_entry()
                     self.configure_state_to_init('disabled')
-                    Logger.add_to_log("erorr", "Vehiculo no editado:" +str(e))
+                    Logger.add_to_log("erorr", "Vehiculo no editado:" + str(e))
                     Logger.add_to_log("erorr", traceback.format_exc())
             else:
-                exito = db.save(vehiculo)
+                exito = db.save(self.vehiculo)
+                print(exito)
                 if exito:
                     messagebox.showinfo('succes', 'Vehiculo guardado')
                     Logger.add_to_log("succes", "Vehiculo guardado")
@@ -277,6 +304,7 @@ class VehiculoPage(ttk.Frame):
             if resultado:
                 db = DbVehiculo()
                 exito = db.borrar(self.vehiculo)
+                print()
                 if exito:
                     self.configure_state_to_init('normal')
                     self.delete_entry()
@@ -286,7 +314,6 @@ class VehiculoPage(ttk.Frame):
                     Logger.add_to_log("succes", "Vehiculo eliminado")
                 else:
                     messagebox.showerror("erorr", "Vehiculo no eliminado")
-                    messagebox.showinfo("error", "Vehiculo no eliminado")
             else:
                 self.aplicar_restriccion_por_rol()
                 pass
@@ -296,5 +323,3 @@ class VehiculoPage(ttk.Frame):
             self.configure_state_to_init('disabled')
             Logger.add_to_log("erorr", str(e))
             Logger.add_to_log("erorr", traceback.format_exc())
-
-
