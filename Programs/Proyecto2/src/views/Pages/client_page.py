@@ -272,7 +272,7 @@ class ClientPage(Base):
                 else:
                     messagebox.showerror('error', 'Cliente no borrado')
                     Logger.add_to_log('error', traceback.format_exc())
-                    self._aplicar_estado(ESTADO_REPOSO)
+                    self._aplicar_estado(ESTADO_RESULTADO)
             else:
                 return
         except Exception as e:
