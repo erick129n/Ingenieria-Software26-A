@@ -1,10 +1,10 @@
 class Pieza:
     def __init__(self, id_pieza=None, descripcion=None, precio=None, cantidad=None, n_serie=None):
-        id_pieza = id_pieza
-        descripcion = descripcion
-        precio = precio
-        cantidad = cantidad
-        n_serie = n_serie
+        self.id_pieza = id_pieza       # CORREGIDO: faltaba self.
+        self.descripcion = descripcion  # CORREGIDO: faltaba self.
+        self.precio = precio            # CORREGIDO: faltaba self.
+        self.cantidad = cantidad        # CORREGIDO: faltaba self.
+        self.n_serie = n_serie         # CORREGIDO: faltaba self.
 
     def setIdPieza(self, id_pieza):
         self.id_pieza = id_pieza

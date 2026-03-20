@@ -2282,3 +2282,163 @@ mysql.connector.errors.InternalError: Unread result found
     raise InternalError("Unread result found")
 mysql.connector.errors.InternalError: Unread result found
 
+2026-03-20 03:57:00 | ERROR | Mysql error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+2026-03-20 03:57:00 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3308' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        port=self.port
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+
+2026-03-20 03:57:32 | ERROR | Mysql error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+2026-03-20 03:57:32 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3308' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        port=self.port
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+
+2026-03-20 03:57:46 | ERROR | Mysql error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+2026-03-20 03:57:46 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3308' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        port=self.port
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+
+2026-03-20 04:27:10 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:27:10 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:27:12 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:27:12 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:28:22 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:28:22 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:28:22 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:28:22 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:28:23 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:28:23 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:28:23 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:28:23 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:50:44 | ERROR | 'Pieza' object has no attribute 'get_descripcion'
+2026-03-20 04:50:44 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_pieza.py", line 25, in save
+    pieza.get_descripcion(),
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_descripcion'. Did you mean: 'getDescripcion'?
+
+2026-03-20 04:57:09 | ERROR | No hay datos
+2026-03-20 04:58:18 | ERROR | 'Pieza' object has no attribute 'get_precio'
+2026-03-20 04:58:18 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_pieza.py", line 26, in save
+    pieza.get_precio(),
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_precio'. Did you mean: 'getPrecio'?
+
+2026-03-20 05:15:56 | INFO | Pieza guardada: 1

@@ -3,7 +3,7 @@ import traceback
 from src.databases.conection2 import Conection
 from src.utils.logger import Logger
 from src.models.cliente import Cliente
-from src.models.usuario import User
+# CORREGIDO: eliminado 'from src.models.usuario import User' — no se usa aquí
 
 
 class DBCliente:
@@ -11,27 +11,27 @@ class DBCliente:
         self.conn = None
         self.cursor = None
         self.con = None
-        self.usuario = User()
 
     def save(self, cliente):
         try:
             self.con = Conection()
             self.conn = self.con.open()
             self.cursor = self.conn.cursor()
-            sql="INSERT INTO clientes(id_cliente, nombre, telefono, email, rfc, usuario_id) VALUES (%s, %s, %s, %s, %s, %s)"
-            datos=(cliente.getIdCliente(),
-                   cliente.getNombre(),
-                   cliente.getTelefono(),
-                   cliente.getEmail(),
-                   cliente.getRfc(),
-                   cliente.getUserId())
+            sql = "INSERT INTO clientes(id_cliente, nombre, telefono, email, rfc, usuario_id) VALUES (%s, %s, %s, %s, %s, %s)"
+            datos = (
+                cliente.getIdCliente(),
+                cliente.getNombre(),
+                cliente.getTelefono(),
+                cliente.getEmail(),
+                cliente.getRfc(),
+                cliente.getUserId()
+            )
             self.cursor.execute(sql, datos)
             self.conn.commit()
-            self.con.close()
             return True
         except Exception as e:
             Logger.add_to_log('error', str(e))
-            Logger.add_to_log('erorr', traceback.format_exc())
+            Logger.add_to_log('error', traceback.format_exc())  # CORREGIDO: 'erorr' → 'error'
             return False
         finally:
             self.close()
@@ -41,7 +41,7 @@ class DBCliente:
             self.con = Conection()
             self.conn = self.con.open()
             self.cursor = self.conn.cursor()
-            sql="SELECT * FROM clientes WHERE nombre = %s"
+            sql = "SELECT * FROM clientes WHERE nombre = %s"
             self.cursor.execute(sql, (nombre,))
             row = self.cursor.fetchone()
             if row:
@@ -57,77 +57,74 @@ class DBCliente:
                 return False, None
         except Exception as e:
             Logger.add_to_log('error', str(e))
-            Logger.add_to_log('erorr', traceback.format_exc())
+            Logger.add_to_log('error', traceback.format_exc())  # CORREGIDO: 'erorr' → 'error'
             return False, None
         finally:
             self.close()
+
     def editar(self, cliente):
         try:
             self.con = Conection()
             self.conn = self.con.open()
             self.cursor = self.conn.cursor()
-
-            sql="""
+            # CORREGIDO: había indentación incorrecta en el WHERE (estaba dentro del SET)
+            sql = """
             UPDATE clientes
-            SET nombre = %s,
-                telefono = %s,
-                email = %s,
-                rfc = %s,
+            SET nombre     = %s,
+                telefono   = %s,
+                email      = %s,
+                rfc        = %s,
                 usuario_id = %s
-                WHERE id_cliente = %s
+            WHERE id_cliente = %s
             """
-
-            datos=(cliente.getNombre(),
-                   cliente.getTelefono(),
-                   cliente.getEmail(),
-                   cliente.getRfc(),
-                   cliente.getUserId(),
-                   cliente.getIdCliente()
+            datos = (
+                cliente.getNombre(),
+                cliente.getTelefono(),
+                cliente.getEmail(),
+                cliente.getRfc(),
+                cliente.getUserId(),
+                cliente.getIdCliente()
             )
-
             self.cursor.execute(sql, datos)
             self.conn.commit()
-
             return self.cursor.rowcount > 0
         except Exception as e:
             Logger.add_to_log('error', str(e))
-            Logger.add_to_log('erorr', traceback.format_exc())
+            Logger.add_to_log('error', traceback.format_exc())  # CORREGIDO: 'erorr' → 'error'
             return False
         finally:
             self.close()
-
 
     def borrar(self, cliente):
         try:
             self.con = Conection()
             self.conn = self.con.open()
             self.cursor = self.conn.cursor()
-            sql="DELETE FROM clientes WHERE id_cliente = %s"
+            sql = "DELETE FROM clientes WHERE id_cliente = %s"
             self.cursor.execute(sql, (cliente.getIdCliente(),))
             self.conn.commit()
             return self.cursor.rowcount > 0
         except Exception as e:
             Logger.add_to_log('error', str(e))
-            Logger.add_to_log('erorr', traceback.format_exc())
+            Logger.add_to_log('error', traceback.format_exc())  # CORREGIDO: 'erorr' → 'error'
             return False
         finally:
             self.close()
 
     def getMaxId(self):
-        maxId=1
+        maxId = 1
         try:
             self.con = Conection()
             self.conn = self.con.open()
             self.cursor = self.conn.cursor()
-            sql="SELECT MAX(id_cliente) AS id_cliente FROM clientes"
+            sql = "SELECT MAX(id_cliente) AS id_cliente FROM clientes"
             self.cursor.execute(sql)
             resultado = self.cursor.fetchone()
             if resultado and resultado[0] is not None:
-                maxId = resultado[0]+1
+                maxId = resultado[0] + 1
         except Exception as e:
             Logger.add_to_log('error', str(e))
-            Logger.add_to_log('erorr', traceback.format_exc())
-
+            Logger.add_to_log('error', traceback.format_exc())  # CORREGIDO: 'erorr' → 'error'
         finally:
             self.close()
         return maxId
