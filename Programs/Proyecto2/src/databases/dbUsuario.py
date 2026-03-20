@@ -26,7 +26,6 @@ class DbUsuario:
                         usuario.getPerfil())
             self.cursor.execute(sql,datos)
             self.conn.commit()
-            self.con.close()
             return True
         except mysql.connector.Error as e:
             Logger.add_to_log('error', 'Error MysQl en guardar:'+str(e))
@@ -71,7 +70,7 @@ class DbUsuario:
             self.conn = self.con.open()
             self.cursor = self.conn.cursor()
 
-            sql="SELECT * FROM usuarios WHERE id={}"
+            sql="SELECT * FROM usuarios WHERE id= %s"
             self.cursor.execute(sql, (usuario_id,))
             row=self.cursor.fetchone()
             if row:
@@ -81,13 +80,14 @@ class DbUsuario:
                 aux.setUserName(row[2])
                 aux.setPassword(row[3])
                 aux.setPerfil(row[4])
+                return True, aux
+            else:
+                return False, None
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
         finally:
             self.close()
-
-        return aux
 
     def editar(self, usuario):
         try:
@@ -133,8 +133,8 @@ class DbUsuario:
             self.conn = self.con.open()
             self.cursor=self.conn.cursor()
 
-            sql="DELETE FROM usuarios WHERE id={}".format(usuario.getUserId())
-            self.cursor.execute(sql)
+            sql="DELETE FROM usuarios WHERE id= %s"
+            self.cursor.execute(sql, (usuario.getUsuario_id(),))
             self.conn.commit()
             return self.cursor.rowcount > 0
         except mysql.connector.IntegrityError:
@@ -156,7 +156,7 @@ class DbUsuario:
             sql="SELECT MAX(id) AS id FROM usuarios"
             self.cursor.execute(sql)
             resultado = self.cursor.fetchone()
-            if resultado and resultado[0]:
+            if resultado and resultado[0] is not None:
                 max_id = resultado[0]+1
         except Exception as e:
             Logger.add_to_log('error', str(e))
@@ -179,6 +179,7 @@ class DbUsuario:
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            return []
         finally:
             self.close()
 
@@ -189,8 +190,8 @@ class DbUsuario:
             if not self.conn:
                 return False, None
             self.cursor=self.conn.cursor()
-            sql="SELECT * FROM usuarios WHERE id={}".format(id_usuario)
-            self.cursor.execute(sql)
+            sql="SELECT * FROM usuarios WHERE id=%s"
+            self.cursor.execute(sql, (id_usuario,))
             row = self.cursor.fetchone()
             if row:
                 aux = User()
@@ -212,7 +213,6 @@ class DbUsuario:
 
     def Autentificar(self, username, password):
         aux = None
-        print('entradndo a autentificar')
         try:
             self.con = Conection()
             self.conn = self.con.open()
@@ -223,9 +223,7 @@ class DbUsuario:
             sql="SELECT * FROM usuarios WHERE username=%s AND password=%s"
             self.cursor.execute(sql, (username, password))
             row=self.cursor.fetchone()
-            print('se hizo la coneccion')
             if row:
-                print('encontrado')
                 aux = User()
                 aux.setUsuario_id(int(row[0]))
                 aux.setNombre(row[1])
@@ -240,6 +238,7 @@ class DbUsuario:
         except mysql.connector.Error as err:
             Logger.add_to_log('error', "Eror MySQL:"+str(err))
             Logger.add_to_log('error', traceback.format_exc())
+            return False, None
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())

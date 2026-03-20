@@ -34,7 +34,7 @@ class DBCliente:
             Logger.add_to_log('erorr', traceback.format_exc())
             return False
         finally:
-            self.con.close()
+            self.close()
 
     def search(self, nombre):
         try:
@@ -74,14 +74,14 @@ class DBCliente:
                 email = %s,
                 rfc = %s,
                 usuario_id = %s
-                WHERE id = %s
+                WHERE id_cliente = %s
             """
 
             datos=(cliente.getNombre(),
                    cliente.getTelefono(),
                    cliente.getEmail(),
                    cliente.getRfc(),
-                   cliente.getUsuarioId(),
+                   cliente.getUserId(),
                    cliente.getIdCliente()
             )
 
@@ -92,6 +92,7 @@ class DBCliente:
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('erorr', traceback.format_exc())
+            return False
         finally:
             self.close()
 
@@ -101,8 +102,8 @@ class DBCliente:
             self.con = Conection()
             self.conn = self.con.open()
             self.cursor = self.conn.cursor()
-            sql="DELETE FROM clientes WHERE id_cliente = {}".format(cliente.getIdCliente())
-            self.cursor.execute(sql)
+            sql="DELETE FROM clientes WHERE id_cliente = %s"
+            self.cursor.execute(sql, (cliente.getIdCliente(),))
             self.conn.commit()
             return self.cursor.rowcount > 0
         except Exception as e:
@@ -121,7 +122,7 @@ class DBCliente:
             sql="SELECT MAX(id_cliente) AS id_cliente FROM clientes"
             self.cursor.execute(sql)
             resultado = self.cursor.fetchone()
-            if resultado:
+            if resultado and resultado[0] is not None:
                 maxId = resultado[0]+1
         except Exception as e:
             Logger.add_to_log('error', str(e))

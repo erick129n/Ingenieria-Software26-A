@@ -36,12 +36,13 @@ class DbVehiculo:
         except mysql.connector.Error as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            return False
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
             return False
         finally:
-            self.conn.close()
+            self.close()
 
     def search(self, matricula):
         try:
@@ -67,13 +68,13 @@ class DbVehiculo:
                 self.lista.append(aux)
                 return True, aux
             else:
-                return False, aux
+                return False, None
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
             return False, None
         finally:
-            self.conn.close()
+            self.close()
 
     def editar(self, vehiculo):
         try:
@@ -83,17 +84,15 @@ class DbVehiculo:
 
             sql=('''UPDATE
                     vehiculos SET
-                 matricula = %s,
                  cliente_id = %s,
                  marca = %s,
                  modelo = %s,
-                 nombre = %s
                  WHERE matricula = %s''')
-            datos=(vehiculo.getMatricula(),
+            datos=(
                    vehiculo.getIdCliente(),
                    vehiculo.getMarca(),
-                   vehiculo.getModelo()
-                   )
+                   vehiculo.getModelo(),
+                   vehiculo.getMatricula())
             self.cursor.execute(sql, datos)
             self.conn.commit()
 
@@ -101,8 +100,13 @@ class DbVehiculo:
         except mysql.connector.Error as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            return False
+        except Exception as e:
+            Logger.add_to_log('error', str(e))
+            Logger.add_to_log('error', traceback.format_exc())
+            return False
         finally:
-            self.conn.close()
+            self.close()
 
     def borrar(self, vehiculo):
         try:
@@ -117,11 +121,13 @@ class DbVehiculo:
         except mysql.connector.IntegrityError as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            return False
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            return False
         finally:
-            self.conn.close()
+            self.close()
 
     def get_name_clintes(self):
         try:
@@ -136,6 +142,7 @@ class DbVehiculo:
         except mysql.connector.Error as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            return []
         finally:
             self.close()
 
