@@ -1,4 +1,5 @@
 import traceback
+import tkinter as tk
 from tkinter import ttk, messagebox
 from tkcalendar import DateEntry
 from datetime import date
@@ -6,6 +7,7 @@ from datetime import date
 from src.models.repair import Repair
 from src.models.detRepair import DetRepairacion
 from src.databases.db_repair import DbRepair
+from src.databases.db_pieza import DbPieza
 from src.utils.logger import Logger
 from src.utils.base import Base, ESTADO_REPOSO, ESTADO_RESULTADO, ESTADO_NUEVO, ESTADO_EDITANDO
 
@@ -87,7 +89,7 @@ class RepairPage(Base):
         self.entry_descripcion   = ttk.Entry(self.frame_datos, width=18)
 
         self.label_usuario_id    = ttk.Label(self.frame_datos, text='Usuario ID')
-        self.entry_usuario_id    = ttk.Entry(self.frame_datos, width=8)
+        self.entry_usuario_id    = ttk.Entry(self.frame_datos, width=8, state='readonly')
 
         for row, (lbl, wdg) in enumerate([
             (self.label_folio,         self.entry_folio),
@@ -185,6 +187,7 @@ class RepairPage(Base):
         )
         self._aplicar_estado(ESTADO_REPOSO)
         self._cargar_combos()
+        self._cargar_usuario_id()
 
     # ════════════════════════════════════════════════════════════════════════
     # VALIDACIONES
@@ -228,6 +231,14 @@ class RepairPage(Base):
     # HELPERS
     # ════════════════════════════════════════════════════════════════════════
 
+    def _cargar_usuario_id(self):
+        """Rellena entry_usuario_id con el ID del usuario actualmente loggeado."""
+        self.entry_usuario_id.config(state='normal')
+        self.entry_usuario_id.delete(0, 'end')
+        if self.usuario_actual:
+            self.entry_usuario_id.insert(0, str(self.usuario_actual.getUsuario_id()))
+        self.entry_usuario_id.config(state='readonly')
+
     def _cargar_combos(self):
         db = DbRepair()
         try:
@@ -249,7 +260,7 @@ class RepairPage(Base):
         self.entry_det_id_pieza.config(state='disabled')
 
     def _limpiar_campos(self):
-        for entry in (self.entry_folio, self.entry_descripcion, self.entry_usuario_id):
+        for entry in (self.entry_folio, self.entry_descripcion):
             entry.config(state='normal')
             entry.delete(0, 'end')
         self.combo_matricula.set('')
@@ -262,6 +273,7 @@ class RepairPage(Base):
         self.entry_det_cantidad.delete(0, 'end')
         for row in self.tree.get_children():
             self.tree.delete(row)
+        self._cargar_usuario_id()  # restaura el ID del usuario loggeado
 
     def _poblar_campos(self):
         self.entry_folio.config(state='normal')
@@ -284,7 +296,7 @@ class RepairPage(Base):
             for det in db.get_detalles_by_rep(rep_id):
                 self.tree.insert('', 'end', values=(
                     det.getFolio(), det.getRepId(),
-                    det.getIdPieza(), det.getCantidad()
+                    det.getidPieza(), det.getCantidad()
                 ))
         except Exception as e:
             Logger.add_to_log('error', str(e))
@@ -409,15 +421,30 @@ class RepairPage(Base):
                     return
                 rep_id = db.getMaxRepId() - 1
                 rep.setFolio(rep_id)
+                db_pieza = DbPieza()
+                errores_stock = []
                 for item in self.tree.get_children():
                     vals = self.tree.item(item, 'values')
                     if vals[0] == 'nuevo':
+                        id_pieza = int(vals[2])
+                        cantidad = int(vals[3])
                         det = DetRepairacion()
                         det.setRepId(rep_id)
-                        det.setIdPieza(int(vals[2]))
-                        det.setCantidad(int(vals[3]))
+                        det.setIdPieza(id_pieza)
+                        det.setCantidad(cantidad)
                         db.saveDetail(det)
-                messagebox.showinfo('Éxito', 'Reparación guardada correctamente.')
+                        # Descontar stock
+                        if not db_pieza.descontar_cantidad(id_pieza, cantidad):
+                            errores_stock.append(f'Pieza ID {id_pieza}: stock insuficiente o no encontrada.')
+                if errores_stock:
+                    messagebox.showwarning(
+                        'Stock insuficiente',
+                        'La reparación se guardó pero hubo problemas con el stock:\n' +
+                        '\n'.join(errores_stock)
+                    )
+                    Logger.add_to_log('warning', 'Stock insuficiente al guardar detalle: ' + str(errores_stock))
+                else:
+                    messagebox.showinfo('Éxito', 'Reparación guardada correctamente.')
                 Logger.add_to_log('info', 'Nueva reparación guardada.')
 
             self._limpiar_campos()
@@ -431,21 +458,86 @@ class RepairPage(Base):
         self._aplicar_estado(ESTADO_EDITANDO)
         self.entry_folio.config(state='disabled')
         self.combo_matricula.config(state='disabled')
+        self.entry_usuario_id.config(state='readonly')  # siempre readonly
 
     def remover_reparacion(self):
+        """
+        Muestra un diálogo con tres opciones:
+          - Cancelar reparación: elimina el registro Y devuelve el stock de piezas.
+          - Eliminar:            elimina el registro sin devolver stock.
+          - Cerrar:              no hace nada.
+        """
         try:
-            if not messagebox.askyesno('Confirmar eliminación',
-                                       '¿Estás seguro de eliminar esta reparación y todo su detalle?'):
+            folio = self.reparacion.getFolio()
+
+            # ── Diálogo personalizado ────────────────────────────────────────
+            dialogo = tk.Toplevel(self)
+            dialogo.title('Remover reparación')
+            dialogo.resizable(False, False)
+            dialogo.grab_set()
+
+            ttk.Label(
+                dialogo,
+                text=f'Reparación #{folio}\n\n'
+                     '¿Qué desea hacer?',
+                justify='center', padding=16
+            ).grid(row=0, column=0, columnspan=3, pady=(12, 4))
+
+            accion = tk.StringVar(value='ninguna')
+
+            ttk.Button(dialogo, text='Cancelar reparación',
+                       command=lambda: (accion.set('cancelar'), dialogo.destroy())
+                       ).grid(row=2, column=0, padx=8, pady=12, sticky='ew')
+
+            ttk.Button(dialogo, text='Eliminar',
+                       command=lambda: (accion.set('eliminar'), dialogo.destroy())
+                       ).grid(row=2, column=1, padx=8, pady=12, sticky='ew')
+
+            ttk.Button(dialogo, text='Cerrar',
+                       command=lambda: (accion.set('ninguna'), dialogo.destroy())
+                       ).grid(row=2, column=2, padx=8, pady=12, sticky='ew')
+
+            dialogo.columnconfigure([0, 1, 2], weight=1)
+            self.wait_window(dialogo)
+
+            if accion.get() == 'ninguna':
                 return
-            db = DbRepair()
-            if db.deleteRepair(self.reparacion):
-                messagebox.showinfo('Éxito', 'Reparación eliminada.')
-                Logger.add_to_log('info', f'Reparación eliminada: {self.reparacion.getFolio()}')
-                self._limpiar_campos()
-                self.entry_buscar.delete(0, 'end')
-                self._aplicar_estado(ESTADO_REPOSO)
-            else:
+
+            # ── Obtener detalles para poder restaurar stock ──────────────────
+            db     = DbRepair()
+            detalles = db.get_detalles_by_rep(folio)
+
+            # ── Eliminar reparación (borra detalles en cascade dentro del método)
+            if not db.deleteRepair(self.reparacion):
                 messagebox.showerror('Error', 'No se pudo eliminar la reparación.')
+                return
+
+            # ── Si eligió cancelar, devolver stock ───────────────────────────
+            if accion.get() == 'cancelar':
+                db_pieza = DbPieza()
+                errores  = []
+                for det in detalles:
+                    if not db_pieza.restaurar_cantidad(det.getidPieza(), det.getCantidad()):
+                        errores.append(f'Pieza ID {det.getidPieza()}')
+                if errores:
+                    messagebox.showwarning(
+                        'Stock parcial',
+                        'Reparación cancelada, pero no se pudo restaurar el stock de:\n' +
+                        '\n'.join(errores)
+                    )
+                    Logger.add_to_log('warning', f'Stock no restaurado para piezas: {errores}')
+                else:
+                    messagebox.showinfo('Éxito',
+                        'Reparación cancelada y stock de piezas restaurado.')
+                Logger.add_to_log('info', f'Reparación #{folio} cancelada, stock restaurado.')
+            else:
+                messagebox.showinfo('Éxito', 'Reparación eliminada.')
+                Logger.add_to_log('info', f'Reparación #{folio} eliminada sin restaurar stock.')
+
+            self._limpiar_campos()
+            self.entry_buscar.delete(0, 'end')
+            self._aplicar_estado(ESTADO_REPOSO)
+
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())

@@ -2442,3 +2442,209 @@ AttributeError: 'Pieza' object has no attribute 'get_descripcion'. Did you mean:
 AttributeError: 'Pieza' object has no attribute 'get_precio'. Did you mean: 'getPrecio'?
 
 2026-03-20 05:15:56 | INFO | Pieza guardada: 1
+2026-03-20 11:12:53 | INFO | Nueva reparación guardada.
+2026-03-20 11:30:39 | ERROR | 1062 (23000): Duplicate entry '1' for key 'pieza_id'
+2026-03-20 11:30:39 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Duplicate entry '1' for key 'pieza_id'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_repair.py", line 156, in saveDetail
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '1' for key 'pieza_id'
+
+2026-03-20 11:30:40 | INFO | Nueva reparación guardada.
+2026-03-20 11:32:13 | INFO | Pieza guardada: 2
+2026-03-20 11:32:52 | INFO | Pieza guardada: 3
+2026-03-20 11:33:30 | ERROR | 'DetRepairacion' object has no attribute 'getIdPieza'
+2026-03-20 11:33:30 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\repair_page.py", line 298, in _cargar_tabla_detalle
+    det.getIdPieza(), det.getCantidad()
+    ^^^^^^^^^^^^^^
+AttributeError: 'DetRepairacion' object has no attribute 'getIdPieza'. Did you mean: 'getidPieza'?
+
+2026-03-20 11:33:36 | ERROR | 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+2026-03-20 11:33:36 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_repair.py", line 109, in deleteRepair
+    self.cursor.execute(sql, (reparacion.getFolio(),))  # CORREGIDO: getRepId() → getFolio()
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+
+2026-03-20 11:36:12 | ERROR | 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+2026-03-20 11:36:12 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_repair.py", line 109, in deleteRepair
+    self.cursor.execute(sql, (reparacion.getFolio(),))  # CORREGIDO: getRepId() → getFolio()
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+
+2026-03-20 11:39:39 | ERROR | 'DetRepairacion' object has no attribute 'getIdPieza'
+2026-03-20 11:39:39 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\repair_page.py", line 298, in _cargar_tabla_detalle
+    det.getIdPieza(), det.getCantidad()
+    ^^^^^^^^^^^^^^
+AttributeError: 'DetRepairacion' object has no attribute 'getIdPieza'. Did you mean: 'getidPieza'?
+
+2026-03-20 11:39:43 | INFO | Reparación eliminada: 1
+2026-03-20 11:48:33 | INFO | Nueva reparación guardada.
+2026-03-20 11:48:43 | ERROR | 'Pieza' object has no attribute 'get_id_pieza'
+2026-03-20 11:48:43 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 178, in _poblar_campos
+    self.entry_idPieza.insert(0, str(pieza.get_id_pieza()))
+                                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_id_pieza'. Did you mean: 'getIdPieza'?
+
+2026-03-20 11:48:59 | ERROR | 'Pieza' object has no attribute 'get_id_pieza'
+2026-03-20 11:48:59 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 178, in _poblar_campos
+    self.entry_idPieza.insert(0, str(pieza.get_id_pieza()))
+                                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_id_pieza'. Did you mean: 'getIdPieza'?
+
+2026-03-20 11:49:00 | ERROR | 'Pieza' object has no attribute 'get_id_pieza'
+2026-03-20 11:49:00 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 178, in _poblar_campos
+    self.entry_idPieza.insert(0, str(pieza.get_id_pieza()))
+                                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_id_pieza'. Did you mean: 'getIdPieza'?
+
+2026-03-20 11:49:37 | ERROR | 'DetRepairacion' object has no attribute 'getIdPieza'
+2026-03-20 11:49:37 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\repair_page.py", line 298, in _cargar_tabla_detalle
+    det.getIdPieza(), det.getCantidad()
+    ^^^^^^^^^^^^^^
+AttributeError: 'DetRepairacion' object has no attribute 'getIdPieza'. Did you mean: 'getidPieza'?
+
+2026-03-20 11:49:45 | INFO | Reparación eliminada: 3
+2026-03-20 11:54:48 | INFO | Nueva reparación guardada.
+2026-03-20 11:56:01 | ERROR | 'DetRepairacion' object has no attribute 'getIdPieza'
+2026-03-20 11:56:01 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\repair_page.py", line 299, in _cargar_tabla_detalle
+    det.getIdPieza(), det.getCantidad()
+    ^^^^^^^^^^^^^^
+AttributeError: 'DetRepairacion' object has no attribute 'getIdPieza'. Did you mean: 'getidPieza'?
+
+2026-03-20 11:56:59 | INFO | Reparación #4 cancelada, stock restaurado.
+2026-03-20 11:58:26 | ERROR | No hay datos
+2026-03-20 11:58:34 | ERROR | 'Pieza' object has no attribute 'get_id_pieza'
+2026-03-20 11:58:34 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 178, in _poblar_campos
+    self.entry_idPieza.insert(0, str(pieza.get_id_pieza()))
+                                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_id_pieza'. Did you mean: 'getIdPieza'?
+
+2026-03-20 11:59:32 | ERROR | 'Pieza' object has no attribute 'get_descripcion'
+2026-03-20 11:59:32 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 182, in _poblar_campos
+    self.entry_descripcion.insert(0, str(pieza.get_descripcion()))
+                                         ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_descripcion'. Did you mean: 'getDescripcion'?
+
+2026-03-20 12:02:24 | INFO | Nueva reparación guardada.
+2026-03-20 12:02:57 | INFO | Nueva reparación guardada.
+2026-03-20 12:03:37 | INFO | Reparación #6 cancelada, stock restaurado.
+2026-03-20 12:03:57 | INFO | Reparación #5 cancelada, stock restaurado.

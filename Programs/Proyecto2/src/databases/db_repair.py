@@ -105,11 +105,22 @@ class DbRepair:
             self.con    = Conection()
             self.conn   = self.con.open()
             self.cursor = self.conn.cursor()
-            sql = "DELETE FROM reparaciones WHERE rep_id = %s"
-            self.cursor.execute(sql, (reparacion.getFolio(),))  # CORREGIDO: getRepId() → getFolio()
+
+            # Primero eliminar los detalles hijos para respetar la FK
+            self.cursor.execute(
+                "DELETE FROM det_reparacion WHERE rep_id = %s",
+                (reparacion.getFolio(),)
+            )
+            # Luego eliminar la reparación padre
+            self.cursor.execute(
+                "DELETE FROM reparaciones WHERE rep_id = %s",
+                (reparacion.getFolio(),)
+            )
             self.conn.commit()
             return self.cursor.rowcount > 0
         except Exception as e:
+            if self.conn:
+                self.conn.rollback()
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
             return False

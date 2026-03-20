@@ -175,20 +175,20 @@ class PiezaPage(Base):
     def _poblar_campos(self, pieza):
         self.entry_idPieza.config(state='normal')
         self.entry_idPieza.delete(0, 'end')
-        self.entry_idPieza.insert(0, str(pieza.get_id_pieza()))
+        self.entry_idPieza.insert(0, str(pieza.getIdPieza()))
         self.entry_idPieza.config(state='disabled')
 
         self.entry_descripcion.delete(0, 'end')
-        self.entry_descripcion.insert(0, str(pieza.get_descripcion()))
+        self.entry_descripcion.insert(0, str(pieza.getDescripcion()))
 
         self.entry_num_serie.delete(0, 'end')
-        self.entry_num_serie.insert(0, str(pieza.get_serie()))
+        self.entry_num_serie.insert(0, str(pieza.getSerie()))
 
         self.entry_precio.delete(0, 'end')
-        self.entry_precio.insert(0, str(pieza.get_precio()))
+        self.entry_precio.insert(0, str(pieza.getPrecio()))
 
         self.entry_existencia.delete(0, 'end')
-        self.entry_existencia.insert(0, str(pieza.get_cantidad()))
+        self.entry_existencia.insert(0, str(pieza.getCantidad()))
 
     def _pieza_desde_campos(self):
         p = Pieza()

@@ -114,6 +114,56 @@ class DbPieza:  # CORREGIDO: no debe heredar de Conection — usa composición, 
         finally:
             self.close()
 
+    def restaurar_cantidad(self, id_pieza, cantidad):
+        """Suma `cantidad` de vuelta al stock de la pieza (cancelación de reparación)."""
+        try:
+            self.con = Conection()
+            self.conn = self.con.open()
+            self.cursor = self.conn.cursor()
+            sql = 'UPDATE piezas SET cantidad = cantidad + %s WHERE id_pieza = %s'
+            self.cursor.execute(sql, (cantidad, id_pieza))
+            self.conn.commit()
+            return self.cursor.rowcount > 0
+        except Exception as e:
+            Logger.add_to_log('error', str(e))
+            Logger.add_to_log('error', traceback.format_exc())
+            return False
+        finally:
+            self.close()
+
+    def descontar_cantidad(self, id_pieza, cantidad):
+        """
+        Resta `cantidad` al stock de la pieza indicada.
+        Retorna True si se actualizó, False si no había suficiente stock o hubo error.
+        """
+        try:
+            self.con = Conection()
+            self.conn = self.con.open()
+            self.cursor = self.conn.cursor()
+
+            # Verificar stock disponible
+            self.cursor.execute('SELECT cantidad FROM piezas WHERE id_pieza = %s', (id_pieza,))
+            row = self.cursor.fetchone()
+            if not row:
+                Logger.add_to_log('warning', f'Pieza {id_pieza} no encontrada al descontar stock.')
+                return False
+            stock_actual = row[0]
+            if stock_actual < cantidad:
+                Logger.add_to_log('warning',
+                    f'Stock insuficiente para pieza {id_pieza}: disponible={stock_actual}, solicitado={cantidad}.')
+                return False
+
+            sql = 'UPDATE piezas SET cantidad = cantidad - %s WHERE id_pieza = %s'
+            self.cursor.execute(sql, (cantidad, id_pieza))
+            self.conn.commit()
+            return self.cursor.rowcount > 0
+        except Exception as e:
+            Logger.add_to_log('error', str(e))
+            Logger.add_to_log('error', traceback.format_exc())
+            return False
+        finally:
+            self.close()
+
     def getMaxIdPieza(self):
         try:
             self.con = Conection()
