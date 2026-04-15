@@ -3,4 +3,6 @@ Documentos/
 /.env
 Proyecto2/.env
 Proyecto2/src/__pycache__/
+Proyecto3/src/_pycache__/
+Proyecto3/.env
 *__pycache__/
