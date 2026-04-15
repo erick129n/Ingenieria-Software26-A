@@ -7,17 +7,20 @@ from tkinter import ttk
 from src.databases.dbUsuario import DbUsuario
 from src.models.usuario import User
 from src.utils.logger import Logger
+from src.utils.base import Base, ESTADO_REPOSO, ESTADO_RESULTADO, ESTADO_NUEVO, ESTADO_EDITANDO
 
-class UserPage(ttk.Frame):
-    def __init__(self, master, controller ):
-        super().__init__(master)
-        self.controller = controller
+class UserPage(Base):
+    def __init__(self, master, controller):
+        super().__init__(master, controller)
+
+        if not self._verificar_acceso(perfi_requerido='Administrador'):
+            return
 
         self.usuario = User()
-        self.seEditaElUsuario = False
+
         self.frameBuscarUser = tk.Frame(master)
-        self.frameDatosUser = tk.Frame(master)
-        self.frameBotones = tk.Frame(master)
+        self.frameDatosUser  = tk.Frame(master)
+        self.frameBotones    = tk.Frame(master)
         self.grid(row=0, column=0, pady=5, padx=5, sticky="nsew")
         master.columnconfigure(0, weight=1)
         master.rowconfigure(0, weight=1)
@@ -27,8 +30,11 @@ class UserPage(ttk.Frame):
         self.frameBuscarUser.grid(row=0, column=0, pady=5, padx=5, sticky="ns")
         self.frameDatosUser.grid(row=2, column=0, pady=5, padx=5, sticky="ns")
         self.frameBotones.grid(row=3, column=0, pady=5, padx=5, sticky="s")
+
+
+
         #######  VARIABLE LOCAL QUE VALIDA SI HAY DATOS EN LA BARARA DE BUSQUEDA
-        vcmd = (self.register(self.activa_Boton_Busqueda_key), '%P')
+        vcmd = (self.register(self.validar_busqueda), '%P')
         # frame de busqueda de usuario
         self.labelBuscarId = ttk.Label(self.frameBuscarUser, text="Buscar ID de usuario: ")
         self.entryBuscarId = ttk.Entry(self.frameBuscarUser, validate='key', width=10, validatecommand=vcmd)
@@ -86,47 +92,63 @@ class UserPage(ttk.Frame):
         for widget in self.frameBotones.winfo_children():
             widget.grid_configure(pady=50, padx=5)
 
-        """
-            ES FUNDAMENTAL ENTENDER QUE AQUI SE DESABILITAN AL INICAR EL PROGRAMA
-            AQUI ESTA EL CONTROL Y LA FUNCION
-        """
-        self.config_state_to_init('disabled')
+        self._registrar_widget(
+            btn_buscar= self.buttonBuscar,
+            entry_buscar = self.entryBuscarId,
+            btn_new = self.buttonNew,
+            btn_save = self.buttonSave,
+            btn_cancel= self.buttonCancel,
+            btn_edit= self.buttonEdit,
+            btn_delete=self.buttonRemove,
+            campos = [
+                self.entryNombre,
+                self.entryUserName,
+                self.entryPassword,
+                self.checkPassword,
+                self.comboBoxPerfil,
+            ],
+            campos_readonly= [self.entryId],
+        )
+        self._aplicar_estado(ESTADO_REPOSO)
 
-    def config_state_to_init(self, control):
-        self.buttonBuscar.configure(state=control)
-        self.entryId.configure(state=control)
-        self.entryNombre.configure(state=control)
-        self.entryUserName.configure(state=control)
-        self.entryPassword.configure(state=control)
-        self.checkPassword.configure(state=control)
-        self.comboBoxPerfil.configure(state=control)
-        self.buttonSave.configure(state=control)
-        self.buttonCancel.configure(state=control)
-        self.buttonEdit.configure(state=control)
-        self.buttonRemove.configure(state=control)
+    def poblar_campos(self, usuario:User):
+        for entry, valor in(
+                (self.entryId, usuario.getUsuario_id()),
+                (self.entryNombre, usuario.getNombre()),
+                (self.entryUserName, usuario.getUserName()),
+                (self.entryPassword, usuario.getPassword()),
+        ):
+            entry.config(state='normal')
+            entry.insert(0, str(valor))
+        self.comboBoxPerfil.set(str(usuario.getPerfil()))
 
-    def config_state_entrys(self, control):
-        self.entryId.config(state=control)
-        self.entryNombre.config(state=control)
-        self.entryUserName.config(state=control)
-        self.entryPassword.config(state=control)
-        self.comboBoxPerfil.config(state=control)
-        self.checkPassword.config(state=control)
+    def validar_busqueda(self, content):
+        valido = content == '' or content.isdigit()
+        if valido:
+            self.buttonBuscar.config(state='normal' if content else 'disabled')
+        return valido
 
-    def delete_entry(self):
-        self.entryId.delete(0, 'end')
-        self.entryNombre.delete(0, 'end')
-        self.entryUserName.delete(0, 'end')
-        self.entryPassword.delete(0, 'end')
-        self.comboBoxPerfil.delete(0, 'end')
-        self.entryBuscarId.delete(0, 'end')
+    def limpiar_campos(self):
+        self._limpiar_todos(
+            self.entryBuscarId,
+            self.entryId,
+            self.entryNombre,
+            self.entryUserName,
+            self.entryPassword,
+        ),
+        self.comboBoxPerfil.set('')
 
-    def put_data_user_in_entry(self, usuario):
-        self.entryId.insert(0, str(usuario.getUsuario_id()))
-        self.entryNombre.insert(0, str(usuario.getNombre()))
-        self.entryUserName.insert(0, str(usuario.getUserName()))
-        self.entryPassword.insert(0, str(usuario.getPassword()))
-        self.comboBoxPerfil.insert(0, str(usuario.getPerfil()))
+    def poblar_campos(self, usuario):
+        for entry, valor in(
+                (self.entryId, usuario.getUsuario_id()),
+                (self.entryNombre, usuario.getNombre()),
+                (self.entryUserName, usuario.getUserName()),
+                (self.entryPassword, usuario.getPassword()),
+        ):
+            entry.config(state='normal')
+            entry.insert(0, str(valor))
+            self.comboBoxPerfil.set(str(usuario.getPerfil()))
+
 
     def show_password(self):
         if self.entryPassword.cget('show') == '*':
@@ -134,12 +156,6 @@ class UserPage(ttk.Frame):
             Logger.add_to_log('warning', 'se ah mostrado una contraseña')
         else:
             self.entryPassword.config(show='*')
-    def activa_Boton_Busqueda_key(self, content):
-        if content.isdigit():
-            self.buttonBuscar.config(state=tk.NORMAL)
-        else:
-            self.buttonBuscar.config(state=tk.DISABLED)
-        return content.isdigit() or content == ""
 
     def buscar_usuario(self):
         try:
@@ -150,19 +166,16 @@ class UserPage(ttk.Frame):
                 Logger.add_to_log('error', traceback.format_exc())
                 return
             db = DbUsuario()
-            exito, aux = db.buscar(id_usuario)
+            exito, aux = db.buscar(int(id_usuario))
             if exito:
                 self.usuario = aux
+
+                self.limpiar_campos()
+                self.poblar_campos(self.usuario)
+                self._aplicar_estado(ESTADO_RESULTADO)
+                #check password
+                self.checkPassword.config(state='normal')
                 Logger.add_to_log('debug', 'Usuario buscado:' + str(aux.getNombre()))
-                self.config_state_to_init('NORMAL')
-                self.delete_entry()
-                self.put_data_user_in_entry(self.usuario)
-                self.config_state_to_init('disabled')
-                self.buttonNew.config(state=tk.DISABLED)
-                self.checkPassword.configure(state=tk.NORMAL)
-                self.buttonEdit.configure(state=tk.NORMAL)
-                self.buttonRemove.configure(state=tk.NORMAL)
-                self.buttonCancel.configure(state=tk.NORMAL)
             else:
                 messagebox.showerror('error', 'Usuario no encontrado')
                 Logger.add_to_log('error', 'Usuario no encontrado')
@@ -171,20 +184,21 @@ class UserPage(ttk.Frame):
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            self._aplicar_estado(ESTADO_REPOSO)
 
     def new_usuario(self):
         try:
-            self.config_state_entrys('NORMAL')
-            self.delete_entry()
+            self.limpiar_campos()
             db = DbUsuario()
             aux_id = db.getMaxId()
+            self.entryId.config(state='normal')
             self.entryId.insert(0, str(aux_id))
             self.entryId.config(state=tk.DISABLED)
-            self.buttonSave.configure(state=tk.NORMAL)
-            self.buttonCancel.configure(state=tk.NORMAL)
+            self._aplicar_estado(ESTADO_NUEVO)
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            self._aplicar_estado(ESTADO_REPOSO)
         except sqlite3.IntegrityError as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
@@ -192,25 +206,34 @@ class UserPage(ttk.Frame):
 
     def salvarUsuario(self):
         try:
-            self.config_state_entrys('NORMAL')
+            self.entryId.config(state='normal')
             user_id = int(self.entryId.get().strip())
+            self.entryId.config(state=tk.DISABLED)
             user_nombre = self.entryNombre.get().strip()
             user_username = self.entryUserName.get().strip()
             user_password = (self.entryPassword.get().strip())
             user_perfil = self.comboBoxPerfil.get().strip()
+
+            if not user_id:
+                messagebox.showerror('error', 'El campo es obligatorio'); return
+            if not user_nombre:
+                messagebox.showerror('error', 'El campo es obligatorio'); return
+            if not user_username:
+                messagebox.showerror('error', 'El campo es obligatorio'); return
+            if not user_password:
+                messagebox.showerror('error', 'El campo es obligatorio'); return
+            if not user_perfil:
+                messagebox.showerror('error', 'El campo es obligatorio'); return
+
             usr = User(user_id,user_nombre,user_username,user_password,user_perfil)
             db = DbUsuario()
-            if self.seEditaElUsuario:
+            if self.estado_actual == ESTADO_EDITANDO:
                 try:
                     if db.editar(usr):
                         messagebox.showinfo('succes', 'Usuario actualizado')
                         Logger.add_to_log('succes', 'Usuario actualizado')
-                        self.delete_entry()
-                        self.entryBuscarId.delete(0, 'end')
-                        self.config_state_to_init('disabled')
-                        self.seEditaElUsuario = False
-                        Logger.add_to_log('info','Usuario editado:'+ str(usr.getNombre()))
-                        return
+                        self.limpiar_campos()
+                        self._aplicar_estado(ESTADO_REPOSO)
                     else:
                         messagebox.showerror('error', 'Usuario no guardado')
                         Logger.add_to_log('error', 'Usuario no guardado')
@@ -223,47 +246,49 @@ class UserPage(ttk.Frame):
                 if exito:
                     messagebox.showinfo('success', 'Usuario guardado')
                     Logger.add_to_log('info','Usuario guardado:'+ str(usr.getNombre()))
-                    self.delete_entry()
-                    self.config_state_to_init('disabled')
+                    self.limpiar_campos()
+                    self._aplicar_estado(ESTADO_REPOSO)
                 else:
                     messagebox.showerror('error', 'Usuario no guardado')
                     Logger.add_to_log('error', 'Usuario no guardado')
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            self._aplicar_estado(ESTADO_REPOSO)
 
     def cancelarUsuario(self):
-        self.config_state_to_init('NORMAL')
-        self.delete_entry()
-        self.config_state_to_init('disabled')
-        self.buttonNew.configure(state=tk.NORMAL)
+        self.limpiar_campos()
+        self._aplicar_estado(ESTADO_REPOSO)
 
     def editarUsuario(self):
-        self.config_state_to_init('NORMAL')
-        self.entryId.config(state=tk.DISABLED)
-        self.buttonNew.configure(state=tk.DISABLED)
-        self.buttonEdit.configure(state=tk.DISABLED)
-        self.buttonRemove.configure(state=tk.DISABLED)
-        self.seEditaElUsuario = True
+        try:
+            self._aplicar_estado(ESTADO_EDITANDO)
+        except Exception as e:
+            Logger.add_to_log('error', str(e))
+            Logger.add_to_log('error', traceback.format_exc())
+            self._aplicar_estado(ESTADO_REPOSO)
 
     def removeUsuario(self):
+        if self.usuario.getUsuario_id() == self.usuario_actual.getUsuario_id():
+            messagebox.showinfo('Error', 'No puedes elimarte')
+            return
         resultado = messagebox.askyesno('Borrar', 'Estas seguro de eliminar este usuario?')
         try:
             if resultado:
                 db = DbUsuario()
                 exito = db.borrar(self.usuario)
                 if exito:
-                    self.config_state_entrys('NORMAL')
-                    self.delete_entry()
-                    self.config_state_to_init('disabled')
-                    self.entryBuscarId.delete(0, 'end')
                     messagebox.showinfo('succes', 'Usuario eliminado')
                     Logger.add_to_log('info','Usuario eliminado: ' + str(self.usuario.getNombre()))
+                    self.limpiar_campos()
+                    self._aplicar_estado(ESTADO_REPOSO)
                 else:
                     messagebox.showerror('error', 'Usuario no borrado')
                     Logger.add_to_log('error', 'Usuario no borrado')
+                    self._aplicar_estado(ESTADO_RESULTADO)
             else:
-                pass
+                return
         except Exception as e:
             Logger.add_to_log('error', str(e))
             Logger.add_to_log('error', traceback.format_exc())
+            self._aplicar_estado(ESTADO_REPOSO)

@@ -49,14 +49,16 @@ class User:
         return self.perfil == Perfil.AUXILIAR.value
     def es_administrador(self):
         return self.perfil == Perfil.ADMINISTRADOR.value
+
+
     def puede_editar(self):
-        return self.es_administrador() or self.es_mecanico()
+        return self.es_administrador()
     def puede_buscar(self):
-        return True
+        return not self.es_mecanico()
+    def puede_crear(self):
+        return self.es_administrador()
 
     def puede_asignar_mecanicos(self):
-        return self.es_administrador() or self.es_mecanico()
+        return self.es_administrador()
     def puede_ver_clientes(self):
-        return True
-    def puede_crear_clientes(self):
-        return self.es_administrador() or self.es_mecanico()
+        return not self.es_mecanico()

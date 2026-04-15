@@ -1208,3 +1208,1443 @@ AttributeError: 'Cliente' object has no attribute 'getUsuario_id'
 2026-03-11 13:02:23 | ERROR | Cliente no borrado
 2026-03-11 13:02:23 | ERROR | NoneType: None
 
+2026-03-11 20:36:29 | ERROR | Mysql error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+2026-03-11 20:36:29 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3308' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        port=self.port
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+
+2026-03-11 21:27:54 | INFO | existe:False
+2026-03-11 21:29:07 | ERROR | No hay datos
+2026-03-11 21:29:07 | INFO | existe:False
+2026-03-11 21:29:58 | ERROR | No hay datos
+2026-03-11 21:29:58 | INFO | existe:False
+2026-03-11 21:31:05 | INFO | username:user2 password:root
+2026-03-11 21:31:05 | ERROR | No hay datos
+2026-03-11 21:31:05 | INFO | existe:False
+2026-03-11 21:33:58 | INFO | username:user2 password:root
+2026-03-11 21:33:58 | ERROR | 'NoneType' object is not subscriptable
+2026-03-11 21:33:58 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\dbUsuario.py", line 227, in Autentificar
+    Logger.add_to_log("info", str(row[0]))
+                                  ~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2026-03-11 21:33:58 | INFO | existe:False
+2026-03-11 21:34:53 | INFO | username:user2 password:root
+2026-03-11 21:34:53 | INFO | None
+2026-03-11 21:34:53 | ERROR | No hay datos
+2026-03-11 21:34:53 | INFO | existe:False
+2026-03-11 21:36:06 | INFO | username:oswi26 password:root
+2026-03-11 21:36:06 | INFO | (3, 'Oswaldo', 'oswi26', 'root', 'Administrador')
+2026-03-11 21:36:06 | INFO | existe:True
+2026-03-11 21:36:06 | INFO | Usuario existe
+2026-03-11 21:36:54 | INFO | existe:True
+2026-03-11 21:36:54 | INFO | Usuario existe
+2026-03-11 21:37:16 | INFO | existe:True
+2026-03-11 21:37:16 | INFO | Usuario existe
+2026-03-11 21:41:08 | INFO | existe:True
+2026-03-11 21:41:08 | INFO | Usuario existe
+2026-03-11 21:41:29 | INFO | existe:True
+2026-03-11 21:41:29 | INFO | Usuario existe
+2026-03-11 21:42:22 | INFO | existe:True
+2026-03-11 21:42:22 | INFO | Usuario existe
+2026-03-11 21:46:27 | INFO | existe:True
+2026-03-11 21:46:27 | INFO | Usuario existe
+2026-03-11 21:54:06 | INFO | existe:True
+2026-03-11 21:54:06 | INFO | Usuario existe
+2026-03-11 21:55:56 | INFO | existe:True
+2026-03-11 21:55:56 | INFO | Usuario existe
+2026-03-11 22:01:58 | INFO | existe:True
+2026-03-11 22:01:58 | INFO | Usuario existe
+2026-03-11 22:04:11 | INFO | existe:True
+2026-03-11 22:04:11 | INFO | Usuario existe
+2026-03-11 22:07:17 | INFO | existe:True
+2026-03-11 22:07:17 | INFO | Usuario existe
+2026-03-11 22:22:49 | INFO | existe:True
+2026-03-11 22:22:49 | INFO | Usuario existe
+2026-03-11 22:24:43 | INFO | existe:True
+2026-03-11 22:24:43 | INFO | Usuario existe
+2026-03-12 21:06:43 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:06:43 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:06:53 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:06:53 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:07:06 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:07:06 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:08:36 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:08:36 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:08:48 | ERROR | 'str' object has no attribute 'getMatricula'
+2026-03-12 21:08:48 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(vehiculo.getMatricula(),))
+                             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getMatricula'
+
+2026-03-12 21:10:12 | ERROR | 1054 (42S22): Unknown column 'clientes.id' in 'on clause'
+2026-03-12 21:10:12 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Unknown column 'clientes.id' in 'on clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(matricula,))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'clientes.id' in 'on clause'
+
+2026-03-12 21:12:14 | ERROR | 1054 (42S22): Unknown column 'clientes.id' in 'on clause'
+2026-03-12 21:12:14 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Unknown column 'clientes.id' in 'on clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 53, in search
+    self.cursor.execute(sql,(matricula,))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'clientes.id' in 'on clause'
+
+2026-03-12 21:13:49 | ERROR | tuple index out of range
+2026-03-12 21:13:49 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 62, in search
+    self.nombre_cliente = row[5]
+                          ~~~^^^
+IndexError: tuple index out of range
+
+2026-03-12 21:26:00 | ERROR | 1054 (42S22): Unknown column 'id_vehiculo' in 'field list'
+2026-03-12 21:26:00 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Unknown column 'id_vehiculo' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 128, in getMaxId
+    self.cursor.execute(sql)
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'id_vehiculo' in 'field list'
+
+2026-03-18 12:01:17 | INFO | ingreso a guardado
+2026-03-18 12:01:17 | INFO | entro a try
+2026-03-18 12:03:50 | INFO | ingreso a guardado
+2026-03-18 12:03:50 | INFO | entro a try
+2026-03-18 12:05:53 | INFO | ingreso a guardado
+2026-03-18 12:05:53 | INFO | entro a try
+2026-03-18 12:05:53 | ERROR | fallo al configurar las entradas
+2026-03-18 12:07:26 | INFO | ingreso a guardado
+2026-03-18 12:07:26 | INFO | se consultara el guardado
+2026-03-18 12:07:26 | INFO | se ingresaron los datos
+2026-03-18 12:07:26 | INFO | El vehiculo se guarda
+2026-03-18 12:08:11 | INFO | ingreso a guardado
+2026-03-18 12:08:11 | INFO | entro a try
+2026-03-18 12:08:11 | INFO | se consultara el guardado
+2026-03-18 12:08:11 | INFO | se ingresaron los datos
+2026-03-18 12:08:11 | INFO | El vehiculo se guarda
+2026-03-18 12:10:12 | INFO | ingreso a guardado
+2026-03-18 12:10:12 | INFO | entro a try
+2026-03-18 12:10:12 | INFO | se consultara el guardado
+2026-03-18 12:10:12 | INFO | se ingresaron los datos
+2026-03-18 12:10:12 | INFO | El vehiculo se guarda
+2026-03-18 12:10:12 | ERROR | 'Vehiculo' object has no attribute 'getCliente'
+2026-03-18 12:10:12 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 30, in save
+    vehiculo.getCliente(),
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Vehiculo' object has no attribute 'getCliente'. Did you mean: 'getIdCliente'?
+
+2026-03-18 12:10:12 | INFO | se guardo el vehiculo
+2026-03-18 12:11:21 | ERROR | Vehiculo no guardado
+2026-03-18 12:11:21 | ERROR | fallo
+2026-03-18 12:11:44 | INFO | ingreso a guardado
+2026-03-18 12:11:44 | INFO | entro a try
+2026-03-18 12:11:44 | INFO | se consultara el guardado
+2026-03-18 12:11:44 | INFO | se ingresaron los datos
+2026-03-18 12:11:44 | INFO | El vehiculo se guarda
+2026-03-18 12:11:44 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+2026-03-18 12:11:44 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+2026-03-18 12:11:44 | INFO | se guardo el vehiculo
+2026-03-18 12:11:45 | ERROR | Vehiculo no guardado
+2026-03-18 12:11:45 | ERROR | fallo
+2026-03-18 12:12:43 | INFO | ingreso a guardado
+2026-03-18 12:12:43 | INFO | entro a try
+2026-03-18 12:12:43 | INFO | se consultara el guardado
+2026-03-18 12:12:43 | INFO | se ingresaron los datos
+2026-03-18 12:12:43 | INFO | El vehiculo se guarda
+2026-03-18 12:12:43 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+2026-03-18 12:12:43 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+2026-03-18 12:12:43 | INFO | se guardo el vehiculo
+2026-03-18 12:12:45 | ERROR | Vehiculo no guardado
+2026-03-18 12:12:45 | ERROR | fallo
+2026-03-18 12:13:24 | INFO | ingreso a guardado
+2026-03-18 12:13:24 | INFO | entro a try
+2026-03-18 12:13:24 | INFO | se consultara el guardado
+2026-03-18 12:13:24 | INFO | se ingresaron los datos
+2026-03-18 12:13:24 | INFO | El vehiculo se guarda
+2026-03-18 12:13:24 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+2026-03-18 12:13:24 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+2026-03-18 12:13:24 | INFO | se guardo el vehiculo
+2026-03-18 12:14:36 | ERROR | Vehiculo no guardado
+2026-03-18 12:14:36 | ERROR | fallo
+2026-03-18 12:14:37 | INFO | ingreso a guardado
+2026-03-18 12:14:37 | INFO | entro a try
+2026-03-18 12:14:37 | INFO | se consultara el guardado
+2026-03-18 12:14:37 | INFO | se ingresaron los datos
+2026-03-18 12:14:37 | INFO | El vehiculo se guarda
+2026-03-18 12:14:37 | INFO | se guardo el vehiculo
+2026-03-18 12:14:38 | ERROR | Vehiculo no guardado
+2026-03-18 12:14:38 | ERROR | fallo
+2026-03-18 12:16:17 | INFO | ingreso a guardado
+2026-03-18 12:16:17 | INFO | entro a try
+2026-03-18 12:16:17 | INFO | se consultara el guardado
+2026-03-18 12:16:17 | INFO | se ingresaron los datos
+2026-03-18 12:16:17 | INFO | El vehiculo se guarda
+2026-03-18 12:16:17 | ERROR | 1062 (23000): Duplicate entry 'R9390BBB' for key 'PRIMARY'
+2026-03-18 12:16:17 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'R9390BBB' for key 'PRIMARY'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'R9390BBB' for key 'PRIMARY'
+
+2026-03-18 12:16:17 | INFO | se guardo el vehiculo
+2026-03-18 12:16:42 | ERROR | Vehiculo no guardado
+2026-03-18 12:16:42 | ERROR | fallo
+2026-03-18 12:18:02 | INFO | ingreso a guardado
+2026-03-18 12:18:02 | INFO | entro a try
+2026-03-18 12:18:02 | INFO | se consultara el guardado
+2026-03-18 12:18:02 | INFO | se ingresaron los datos
+2026-03-18 12:18:02 | INFO | El vehiculo se guarda
+2026-03-18 12:18:02 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+2026-03-18 12:18:02 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+2026-03-18 12:18:02 | INFO | se guardo el vehiculo
+2026-03-18 12:18:03 | ERROR | Vehiculo no guardado
+2026-03-18 12:18:03 | ERROR | fallo
+2026-03-18 12:18:13 | INFO | ingreso a guardado
+2026-03-18 12:18:13 | INFO | entro a try
+2026-03-18 12:18:13 | INFO | se consultara el guardado
+2026-03-18 12:18:13 | INFO | se ingresaron los datos
+2026-03-18 12:18:13 | INFO | El vehiculo se guarda
+2026-03-18 12:18:13 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+2026-03-18 12:18:13 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+2026-03-18 12:18:13 | INFO | se guardo el vehiculo
+2026-03-18 12:18:14 | ERROR | Vehiculo no guardado
+2026-03-18 12:18:14 | ERROR | fallo
+2026-03-18 12:18:17 | INFO | ingreso a guardado
+2026-03-18 12:18:17 | INFO | entro a try
+2026-03-18 12:18:17 | INFO | se consultara el guardado
+2026-03-18 12:18:17 | INFO | se ingresaron los datos
+2026-03-18 12:18:17 | INFO | El vehiculo se guarda
+2026-03-18 12:18:17 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+2026-03-18 12:18:17 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+2026-03-18 12:18:17 | INFO | se guardo el vehiculo
+2026-03-18 12:18:18 | ERROR | Vehiculo no guardado
+2026-03-18 12:18:18 | ERROR | fallo
+2026-03-18 12:21:37 | INFO | ingreso a guardado
+2026-03-18 12:21:37 | INFO | entro a try
+2026-03-18 12:21:37 | INFO | se consultara el guardado
+2026-03-18 12:21:37 | INFO | se ingresaron los datos
+2026-03-18 12:21:37 | INFO | El vehiculo se guarda
+2026-03-18 12:21:37 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+2026-03-18 12:21:37 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+2026-03-18 12:21:37 | INFO | se guardo el vehiculo
+2026-03-18 12:21:38 | ERROR | Vehiculo no guardado
+2026-03-18 12:21:38 | ERROR | fallo
+2026-03-18 12:22:38 | INFO | ingreso a guardado
+2026-03-18 12:22:38 | INFO | entro a try
+2026-03-18 12:22:38 | INFO | se consultara el guardado
+2026-03-18 12:22:38 | INFO | se ingresaron los datos
+2026-03-18 12:22:38 | INFO | El vehiculo se guarda
+2026-03-18 12:22:38 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+2026-03-18 12:22:38 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+2026-03-18 12:22:38 | INFO | se guardo el vehiculo
+2026-03-18 12:22:40 | ERROR | Vehiculo no guardado
+2026-03-18 12:22:40 | ERROR | fallo
+2026-03-18 12:23:14 | INFO | ingreso a guardado
+2026-03-18 12:23:14 | INFO | entro a try
+2026-03-18 12:23:14 | INFO | se consultara el guardado
+2026-03-18 12:23:14 | INFO | se ingresaron los datos
+2026-03-18 12:23:14 | INFO | El vehiculo se guarda
+2026-03-18 12:23:14 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+2026-03-18 12:23:14 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+2026-03-18 12:23:14 | INFO | se guardo el vehiculo
+2026-03-18 12:23:53 | ERROR | Vehiculo no guardado
+2026-03-18 12:23:53 | ERROR | fallo
+2026-03-18 12:24:18 | INFO | ingreso a guardado
+2026-03-18 12:24:18 | INFO | entro a try
+2026-03-18 12:24:18 | INFO | se consultara el guardado
+2026-03-18 12:24:18 | INFO | se ingresaron los datos
+2026-03-18 12:24:18 | INFO | El vehiculo se guarda
+2026-03-18 12:24:18 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+2026-03-18 12:24:18 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+2026-03-18 12:24:18 | INFO | se guardo el vehiculo
+2026-03-18 12:24:20 | ERROR | Vehiculo no guardado
+2026-03-18 12:24:20 | ERROR | fallo
+2026-03-18 12:25:36 | INFO | ingreso a guardado
+2026-03-18 12:25:36 | INFO | entro a try
+2026-03-18 12:25:36 | INFO | se consultara el guardado
+2026-03-18 12:25:36 | INFO | se ingresaron los datos
+2026-03-18 12:25:36 | INFO | El vehiculo se guarda
+2026-03-18 12:25:36 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+2026-03-18 12:25:36 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`))
+
+2026-03-18 12:25:36 | INFO | se guardo el vehiculo
+2026-03-18 12:25:39 | ERROR | Vehiculo no guardado
+2026-03-18 12:25:39 | ERROR | fallo
+2026-03-18 12:28:25 | INFO | ingreso a guardado
+2026-03-18 12:28:25 | INFO | entro a try
+2026-03-18 12:28:25 | INFO | se consultara el guardado
+2026-03-18 12:28:25 | INFO | se ingresaron los datos
+2026-03-18 12:28:25 | INFO | El vehiculo se guarda
+2026-03-18 12:28:25 | ERROR | 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+2026-03-18 12:28:25 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`taller_mecanico`.`vehiculos`, CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+2026-03-18 12:28:25 | INFO | se guardo el vehiculo
+2026-03-18 12:28:26 | ERROR | Vehiculo no guardado
+2026-03-18 12:28:26 | ERROR | fallo
+2026-03-18 12:47:57 | INFO | ingreso a guardado
+2026-03-18 12:47:57 | INFO | entro a try
+2026-03-18 12:47:57 | INFO | se consultara el guardado
+2026-03-18 12:47:57 | INFO | se ingresaron los datos
+2026-03-18 12:47:57 | INFO | El vehiculo se guarda
+2026-03-18 12:47:57 | INFO | se guardo el vehiculo
+2026-03-18 12:47:58 | ERROR | Vehiculo no guardado
+2026-03-18 12:47:58 | ERROR | fallo
+2026-03-18 12:53:37 | INFO | ingreso a guardado
+2026-03-18 12:53:37 | INFO | entro a try
+2026-03-18 12:53:37 | INFO | se consultara el guardado
+2026-03-18 12:53:37 | INFO | se ingresaron los datos
+2026-03-18 12:53:37 | INFO | El vehiculo se guarda
+2026-03-18 12:53:37 | ERROR | 1062 (23000): Duplicate entry 'R9390BBB' for key 'PRIMARY'
+2026-03-18 12:53:38 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'R9390BBB' for key 'PRIMARY'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'R9390BBB' for key 'PRIMARY'
+
+2026-03-18 12:53:38 | INFO | se guardo el vehiculo
+2026-03-18 12:53:39 | ERROR | Vehiculo no guardado
+2026-03-18 12:53:39 | ERROR | fallo
+2026-03-18 12:54:06 | INFO | ingreso a guardado
+2026-03-18 12:54:06 | INFO | entro a try
+2026-03-18 12:54:06 | INFO | se consultara el guardado
+2026-03-18 12:54:06 | INFO | se ingresaron los datos
+2026-03-18 12:54:06 | INFO | El vehiculo se guarda
+2026-03-18 12:54:06 | INFO | se guardo el vehiculo
+2026-03-18 12:54:07 | ERROR | Vehiculo no guardado
+2026-03-18 12:54:07 | ERROR | fallo
+2026-03-18 12:55:24 | INFO | ingreso a guardado
+2026-03-18 12:55:24 | INFO | entro a try
+2026-03-18 12:55:24 | INFO | guardar matricula
+2026-03-18 12:55:24 | INFO | guardar cliente
+2026-03-18 12:55:24 | INFO | guardar marca
+2026-03-18 12:55:24 | INFO | guardar modelo
+2026-03-18 12:55:24 | INFO | guardar vehiculo
+2026-03-18 12:55:24 | INFO | se consultara el guardado
+2026-03-18 12:55:24 | INFO | se ingresaron los datos
+2026-03-18 12:55:24 | INFO | El vehiculo se guarda
+2026-03-18 12:55:24 | INFO | se guardo el vehiculo
+2026-03-18 12:55:25 | ERROR | Vehiculo no guardado
+2026-03-18 12:57:28 | INFO | ingreso a guardado
+2026-03-18 12:57:28 | INFO | entro a try
+2026-03-18 12:57:28 | INFO | guardar matricula
+2026-03-18 12:57:28 | INFO | guardar cliente
+2026-03-18 12:57:28 | INFO | guardar marca
+2026-03-18 12:57:28 | INFO | guardar modelo
+2026-03-18 12:57:28 | INFO | guardar vehiculo
+2026-03-18 12:57:28 | INFO | se consultara el guardado
+2026-03-18 12:57:28 | INFO | se ingresaron los datos
+2026-03-18 12:57:28 | INFO | El vehiculo se guarda
+2026-03-18 12:57:28 | ERROR | 1062 (23000): Duplicate entry 'H9572CJK' for key 'PRIMARY'
+2026-03-18 12:57:28 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'H9572CJK' for key 'PRIMARY'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 33, in save
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'H9572CJK' for key 'PRIMARY'
+
+2026-03-18 12:57:28 | INFO | se guardo el vehiculo
+2026-03-18 12:57:30 | ERROR | Vehiculo no guardado
+2026-03-18 12:57:59 | ERROR | Unread result found
+2026-03-18 12:57:59 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 113, in borrar
+    self.conn.commit()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 604, in commit
+    self.handle_unread_result()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 1121, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2026-03-18 16:15:06 | INFO | ingreso a guardado
+2026-03-18 16:15:06 | INFO | entro a try
+2026-03-18 16:15:06 | INFO | guardar matricula
+2026-03-18 16:15:06 | INFO | guardar cliente
+2026-03-18 16:15:06 | INFO | guardar marca
+2026-03-18 16:15:06 | INFO | guardar modelo
+2026-03-18 16:15:06 | INFO | guardar vehiculo
+2026-03-18 16:15:06 | INFO | se consultara el guardado
+2026-03-18 16:15:06 | INFO | se ingresaron los datos
+2026-03-18 16:15:06 | INFO | El vehiculo se guarda
+2026-03-18 16:15:06 | INFO | se guardo el vehiculo
+2026-03-18 16:17:28 | ERROR | Vehiculo no guardado
+2026-03-18 16:17:31 | ERROR | Unread result found
+2026-03-18 16:17:31 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 113, in borrar
+    self.conn.commit()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 604, in commit
+    self.handle_unread_result()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 1121, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2026-03-18 16:24:33 | INFO | ingreso a guardado
+2026-03-18 16:24:33 | INFO | entro a try
+2026-03-18 16:24:33 | INFO | guardar matricula
+2026-03-18 16:24:33 | INFO | guardar cliente
+2026-03-18 16:24:33 | INFO | guardar marca
+2026-03-18 16:24:33 | INFO | guardar modelo
+2026-03-18 16:24:33 | INFO | guardar vehiculo
+2026-03-18 16:24:33 | INFO | se consultara el guardado
+2026-03-18 16:24:33 | INFO | se ingresaron los datos
+2026-03-18 16:24:33 | INFO | El vehiculo se guarda
+2026-03-18 16:24:33 | INFO | se guardo el vehiculo
+2026-03-18 16:24:34 | ERROR | Vehiculo no guardado
+2026-03-18 16:25:01 | ERROR | Unread result found
+2026-03-18 16:25:01 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 113, in borrar
+    self.conn.commit()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 604, in commit
+    self.handle_unread_result()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 1121, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2026-03-18 16:25:13 | ERROR | Unread result found
+2026-03-18 16:25:13 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_vehiculo.py", line 113, in borrar
+    self.conn.commit()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 604, in commit
+    self.handle_unread_result()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 1121, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2026-03-20 03:57:00 | ERROR | Mysql error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+2026-03-20 03:57:00 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3308' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        port=self.port
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+
+2026-03-20 03:57:32 | ERROR | Mysql error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+2026-03-20 03:57:32 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3308' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        port=self.port
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+
+2026-03-20 03:57:46 | ERROR | Mysql error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+2026-03-20 03:57:46 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3308' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\conection2.py", line 19, in open
+    self.conn = mysql.connector.connect(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        host= self.host,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        port=self.port
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3308' (10061)
+
+2026-03-20 04:27:10 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:27:10 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:27:12 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:27:12 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:28:22 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:28:22 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:28:22 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:28:22 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:28:23 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:28:23 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:28:23 | ERROR | 'PiezaPage' object has no attribute '_estado'
+2026-03-20 04:28:23 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 251, in salvar_pieza
+    if self._estado == ESTADO_EDITANDO:
+       ^^^^^^^^^^^^
+AttributeError: 'PiezaPage' object has no attribute '_estado'
+
+2026-03-20 04:50:44 | ERROR | 'Pieza' object has no attribute 'get_descripcion'
+2026-03-20 04:50:44 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_pieza.py", line 25, in save
+    pieza.get_descripcion(),
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_descripcion'. Did you mean: 'getDescripcion'?
+
+2026-03-20 04:57:09 | ERROR | No hay datos
+2026-03-20 04:58:18 | ERROR | 'Pieza' object has no attribute 'get_precio'
+2026-03-20 04:58:18 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_pieza.py", line 26, in save
+    pieza.get_precio(),
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_precio'. Did you mean: 'getPrecio'?
+
+2026-03-20 05:15:56 | INFO | Pieza guardada: 1
+2026-03-20 11:12:53 | INFO | Nueva reparación guardada.
+2026-03-20 11:30:39 | ERROR | 1062 (23000): Duplicate entry '1' for key 'pieza_id'
+2026-03-20 11:30:39 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Duplicate entry '1' for key 'pieza_id'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_repair.py", line 156, in saveDetail
+    self.cursor.execute(sql, datos)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '1' for key 'pieza_id'
+
+2026-03-20 11:30:40 | INFO | Nueva reparación guardada.
+2026-03-20 11:32:13 | INFO | Pieza guardada: 2
+2026-03-20 11:32:52 | INFO | Pieza guardada: 3
+2026-03-20 11:33:30 | ERROR | 'DetRepairacion' object has no attribute 'getIdPieza'
+2026-03-20 11:33:30 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\repair_page.py", line 298, in _cargar_tabla_detalle
+    det.getIdPieza(), det.getCantidad()
+    ^^^^^^^^^^^^^^
+AttributeError: 'DetRepairacion' object has no attribute 'getIdPieza'. Did you mean: 'getidPieza'?
+
+2026-03-20 11:33:36 | ERROR | 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+2026-03-20 11:33:36 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_repair.py", line 109, in deleteRepair
+    self.cursor.execute(sql, (reparacion.getFolio(),))  # CORREGIDO: getRepId() → getFolio()
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+
+2026-03-20 11:36:12 | ERROR | 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+2026-03-20 11:36:12 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\databases\db_repair.py", line 109, in deleteRepair
+    self.cursor.execute(sql, (reparacion.getFolio(),))  # CORREGIDO: getRepId() → getFolio()
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\proyecto-2\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`taller_mecanico`.`det_reparacion`, CONSTRAINT `det_reparacion_ibfk_2` FOREIGN KEY (`rep_id`) REFERENCES `reparaciones` (`rep_id`))
+
+2026-03-20 11:39:39 | ERROR | 'DetRepairacion' object has no attribute 'getIdPieza'
+2026-03-20 11:39:39 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\repair_page.py", line 298, in _cargar_tabla_detalle
+    det.getIdPieza(), det.getCantidad()
+    ^^^^^^^^^^^^^^
+AttributeError: 'DetRepairacion' object has no attribute 'getIdPieza'. Did you mean: 'getidPieza'?
+
+2026-03-20 11:39:43 | INFO | Reparación eliminada: 1
+2026-03-20 11:48:33 | INFO | Nueva reparación guardada.
+2026-03-20 11:48:43 | ERROR | 'Pieza' object has no attribute 'get_id_pieza'
+2026-03-20 11:48:43 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 178, in _poblar_campos
+    self.entry_idPieza.insert(0, str(pieza.get_id_pieza()))
+                                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_id_pieza'. Did you mean: 'getIdPieza'?
+
+2026-03-20 11:48:59 | ERROR | 'Pieza' object has no attribute 'get_id_pieza'
+2026-03-20 11:48:59 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 178, in _poblar_campos
+    self.entry_idPieza.insert(0, str(pieza.get_id_pieza()))
+                                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_id_pieza'. Did you mean: 'getIdPieza'?
+
+2026-03-20 11:49:00 | ERROR | 'Pieza' object has no attribute 'get_id_pieza'
+2026-03-20 11:49:00 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 178, in _poblar_campos
+    self.entry_idPieza.insert(0, str(pieza.get_id_pieza()))
+                                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_id_pieza'. Did you mean: 'getIdPieza'?
+
+2026-03-20 11:49:37 | ERROR | 'DetRepairacion' object has no attribute 'getIdPieza'
+2026-03-20 11:49:37 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\repair_page.py", line 298, in _cargar_tabla_detalle
+    det.getIdPieza(), det.getCantidad()
+    ^^^^^^^^^^^^^^
+AttributeError: 'DetRepairacion' object has no attribute 'getIdPieza'. Did you mean: 'getidPieza'?
+
+2026-03-20 11:49:45 | INFO | Reparación eliminada: 3
+2026-03-20 11:54:48 | INFO | Nueva reparación guardada.
+2026-03-20 11:56:01 | ERROR | 'DetRepairacion' object has no attribute 'getIdPieza'
+2026-03-20 11:56:01 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\repair_page.py", line 299, in _cargar_tabla_detalle
+    det.getIdPieza(), det.getCantidad()
+    ^^^^^^^^^^^^^^
+AttributeError: 'DetRepairacion' object has no attribute 'getIdPieza'. Did you mean: 'getidPieza'?
+
+2026-03-20 11:56:59 | INFO | Reparación #4 cancelada, stock restaurado.
+2026-03-20 11:58:26 | ERROR | No hay datos
+2026-03-20 11:58:34 | ERROR | 'Pieza' object has no attribute 'get_id_pieza'
+2026-03-20 11:58:34 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 178, in _poblar_campos
+    self.entry_idPieza.insert(0, str(pieza.get_id_pieza()))
+                                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_id_pieza'. Did you mean: 'getIdPieza'?
+
+2026-03-20 11:59:32 | ERROR | 'Pieza' object has no attribute 'get_descripcion'
+2026-03-20 11:59:32 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 217, in buscar_pieza
+    self._poblar_campos(pieza)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Lenovo\Documents\UDG\Ingenieria de Software\Programs\Proyecto2\src\views\Pages\piece_page.py", line 182, in _poblar_campos
+    self.entry_descripcion.insert(0, str(pieza.get_descripcion()))
+                                         ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Pieza' object has no attribute 'get_descripcion'. Did you mean: 'getDescripcion'?
+
+2026-03-20 12:02:24 | INFO | Nueva reparación guardada.
+2026-03-20 12:02:57 | INFO | Nueva reparación guardada.
+2026-03-20 12:03:37 | INFO | Reparación #6 cancelada, stock restaurado.
+2026-03-20 12:03:57 | INFO | Reparación #5 cancelada, stock restaurado.
