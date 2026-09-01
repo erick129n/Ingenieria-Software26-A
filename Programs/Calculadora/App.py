@@ -10,114 +10,179 @@ class App(tk.Tk):
         self.title("Calculadora")
         self.fuenteDisplay = tk.font.Font(family="Arial", size=16)
         self.fuente = tk.font.Font(family="Arial", size=14)
-        self.frame = tk.Frame(self, borderwidth=5, width=400, height=450)
-        self.geometry('400x525')
-        self.frame.grid(row=0, column=0, columnspan=5, rowspan=11)
-        self.display = tk.Entry(self, font=self.fuenteDisplay, justify='right')
-        # campos de conversión
-        self.buttonHex = tk.Button(self, text="Hex:", background='lightgray', font= tk.font.Font(family='Arial', size=10), command=
-                                    lambda: self.button_Hexa())
-        self.buttonDec = tk.Button(self, text="Dec:", background='lightgray', font= tk.font.Font(family='Arial', size=10),
-                                    command=lambda: self.button_Decimal())
-        self.buttonOct = tk.Button(self, text="Oct:", background='lightgray', font= tk.font.Font(family='Arial', size=10),
-                                    command=lambda: self.button_Octal())
-        self.buttonBin = tk.Button(self, text="Bin:", background='lightgray', font= tk.font.Font(family='Arial', size=10),
-                                    command=lambda: self.button_Binario())
+        
+        self.geometry('450x600')
+        self.minsize(450, 600)
+        
+        # Grid config for main window
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
 
-        # Ubicación de los campos de conversión
-        self.buttonHex.grid(row=1, column=0, padx=8, pady=8, sticky='w')
-        self.buttonDec.grid(row=2, column=0, padx=8, pady=8, sticky='w')
-        self.buttonOct.grid(row=3, column=0, padx=8, pady=8, sticky='w')
-        self.buttonBin.grid(row=4, column=0, padx=8, pady=8, sticky='w')
+        self.frame = tk.Frame(self, borderwidth=5)
+        self.frame.grid(row=0, column=0, sticky="nsew")
 
-        # Campos de conversión
-        self.displayHex = tk.Entry(self, font=self.fuente, justify='right')
-        self.displayDec = tk.Entry(self, font=self.fuente, justify='right')
-        self.displayOct = tk.Entry(self, font=self.fuente, justify='right')
-        self.displayBin = tk.Entry(self, font=self.fuente, justify='right')
+        # Configure columns and rows for the frame to make buttons uniform
+        for i in range(5):
+            self.frame.grid_columnconfigure(i, weight=1, minsize=60)
+        for i in range(11):
+            self.frame.grid_rowconfigure(i, weight=1, minsize=40)
 
-        # Ubicación de los campos de conversión
-        self.display.grid(row=0, column=0, columnspan=5, rowspan=1, padx=10, pady=10, sticky='nswe')
-        self.displayHex.grid(row=1, column=1, columnspan=4, rowspan=1, sticky='nswe')
-        self.displayDec.grid(row=2, column=1, columnspan=4, rowspan=1, sticky='nswe')
-        self.displayOct.grid(row=3, column=1, columnspan=4, rowspan=1, sticky='nswe')
-        self.displayBin.grid(row=4, column=1, columnspan=4, rowspan=1, sticky='nswe')
+        self.display = tk.Entry(self.frame, font=self.fuenteDisplay, justify='right')
+        
+        self.buttonHex = tk.Button(self.frame, text="Hex:", background='lightgray', font=tk.font.Font(family='Arial', size=10), command=self.button_Hexa)
+        self.buttonDec = tk.Button(self.frame, text="Dec:", background='lightgray', font=tk.font.Font(family='Arial', size=10), command=self.button_Decimal)
+        self.buttonOct = tk.Button(self.frame, text="Oct:", background='lightgray', font=tk.font.Font(family='Arial', size=10), command=self.button_Octal)
+        self.buttonBin = tk.Button(self.frame, text="Bin:", background='lightgray', font=tk.font.Font(family='Arial', size=10), command=self.button_Binario)
 
-        #botones numeros
-        self.button1 = tk.Button(self, text="1", font=self.fuente, command=lambda:self.button_1())
-        self.button2 = tk.Button(self, text="2", font=self.fuente, command=lambda:self.button_2())
-        self.button3 = tk.Button(self, text="3", font=self.fuente, command=lambda:self.button_3())
-        self.button4 = tk.Button(self, text="4", font=self.fuente, command=lambda:self.button_4())
-        self.button5 = tk.Button(self, text="5", font=self.fuente, command=lambda:self.button_5())
-        self.button6 = tk.Button(self, text="6", font=self.fuente, command=lambda:self.button_6())
-        self.button7 = tk.Button(self, text="7", font=self.fuente, command=lambda:self.button_7())
-        self.button8 = tk.Button(self, text="8", font=self.fuente, command=lambda:self.button_8())
-        self.button9 = tk.Button(self, text="9", font=self.fuente, command=lambda:self.button_9())
-        self.button0 = tk.Button(self, text="0", font=self.fuente, command=lambda:self.button_0())
-        self.buttonA = tk.Button(self, text="A", font=self.fuente, command=lambda:self.button_A())
-        self.buttonB = tk.Button(self, text="B", font=self.fuente, command=lambda:self.button_B())
-        self.buttonC = tk.Button(self, text="C", font=self.fuente, command=lambda:self.button_C())
-        self.buttonD = tk.Button(self, text="D", font=self.fuente, command=lambda:self.button_D())
-        self.buttonE = tk.Button(self, text="E", font=self.fuente, command=lambda:self.button_E())
-        self.buttonF = tk.Button(self, text="F", font=self.fuente, command=lambda:self.button_F())
+        self.buttonHex.grid(row=1, column=0, padx=2, pady=2, sticky='nsew')
+        self.buttonDec.grid(row=2, column=0, padx=2, pady=2, sticky='nsew')
+        self.buttonOct.grid(row=3, column=0, padx=2, pady=2, sticky='nsew')
+        self.buttonBin.grid(row=4, column=0, padx=2, pady=2, sticky='nsew')
 
+        self.displayHex = tk.Entry(self.frame, font=self.fuente, justify='right')
+        self.displayDec = tk.Entry(self.frame, font=self.fuente, justify='right')
+        self.displayOct = tk.Entry(self.frame, font=self.fuente, justify='right')
+        self.displayBin = tk.Entry(self.frame, font=self.fuente, justify='right')
 
-        #operaciones aritmeticas
-        self.buttonSuma = tk.Button(self, text="+", font=self.fuente, command=lambda:self.button_suma())
-        self.buttonResta = tk.Button(self, text="-", font=self.fuente, command=lambda:self.button_resta())
-        self.buttonMultiplicacion = tk.Button(self, text="*", font=self.fuente, command=lambda:self.button_multiplicacion())
-        self.buttonDivision = tk.Button(self, text="/", font=self.fuente, command=lambda:self.button_division())
-        self.buttonIgual = tk.Button(self, text="=", font=self.fuente, command=lambda:self.button_igual())
-        self.buttonClear = tk.Button(self, text="CR", font=self.fuente, command=lambda:self.button_clear())
-        self.buttonAbsolute = tk.Button(self, text="+/-", font=self.fuente, command=lambda:self.button_Absolute())
-        self.buttonPunto = tk.Button(self, text=".", font=self.fuente, command=lambda:self.button_punto())
-        self.buttonDelete = tk.Button(self, text="DEL", font=self.fuente, command=lambda:self.button_delete())
-        self.buttonSin = tk.Button(self, text="sin", font=self.fuente, command=lambda:self.button_sin())
-        self.buttonUpper = tk.Button(self, text="^", font=self.fuente, command=lambda:self.button_Upper())
-        self.buttonFactorial = tk.Button(self, text="x!", font=self.fuente, command=lambda:self.button_factorial())
-        self.buttonRaiz = tk.Button(self, text="√", font=self.fuente, command=lambda:self.button_raiz())
-        self.buttonModule = tk.Button(self, text="%", font=self.fuente, command=lambda:self.button_modulo())
+        self.display.grid(row=0, column=0, columnspan=5, rowspan=1, padx=5, pady=5, sticky='nsew')
+        self.displayHex.grid(row=1, column=1, columnspan=4, rowspan=1, sticky='nsew', padx=2, pady=2)
+        self.displayDec.grid(row=2, column=1, columnspan=4, rowspan=1, sticky='nsew', padx=2, pady=2)
+        self.displayOct.grid(row=3, column=1, columnspan=4, rowspan=1, sticky='nsew', padx=2, pady=2)
+        self.displayBin.grid(row=4, column=1, columnspan=4, rowspan=1, sticky='nsew', padx=2, pady=2)
 
-        # Ubicacion de los botones
-        self.button1.grid(row=9, column=1, padx=5, pady=5)
-        self.button3.grid(row=9, column=3, padx=5, pady=5)
-        self.button2.grid(row=9, column=2, padx=5, pady=5)
-        self.button4.grid(row=8, column=1, padx=5, pady=5)
-        self.button5.grid(row=8, column=2, padx=5, pady=5)
-        self.button6.grid(row=8, column=3, padx=5, pady=5)
-        self.button7.grid(row=7, column=1, padx=5, pady=5)
-        self.button8.grid(row=7, column=2, padx=5, pady=5)
-        self.button9.grid(row=7, column=3, padx=5, pady=5)
-        self.button0.grid(row=10, column=2, padx=5, pady=5)
-        self.buttonA.grid(row=5, column=0, padx=5, pady=5)
-        self.buttonB.grid(row=6, column=0, padx=5, pady=5)
-        self.buttonC.grid(row=7, column=0, padx=5, pady=5)
-        self.buttonD.grid(row=8, column=0, padx=5, pady=5)
-        self.buttonE.grid(row=9, column=0, padx=5, pady=5)
-        self.buttonF.grid(row=10, column=0, padx=5, pady=5)
+        self.button1 = tk.Button(self.frame, text="1", font=self.fuente, command=lambda: self._insert_text("1"))
+        self.button2 = tk.Button(self.frame, text="2", font=self.fuente, command=lambda: self._insert_text("2"))
+        self.button3 = tk.Button(self.frame, text="3", font=self.fuente, command=lambda: self._insert_text("3"))
+        self.button4 = tk.Button(self.frame, text="4", font=self.fuente, command=lambda: self._insert_text("4"))
+        self.button5 = tk.Button(self.frame, text="5", font=self.fuente, command=lambda: self._insert_text("5"))
+        self.button6 = tk.Button(self.frame, text="6", font=self.fuente, command=lambda: self._insert_text("6"))
+        self.button7 = tk.Button(self.frame, text="7", font=self.fuente, command=lambda: self._insert_text("7"))
+        self.button8 = tk.Button(self.frame, text="8", font=self.fuente, command=lambda: self._insert_text("8"))
+        self.button9 = tk.Button(self.frame, text="9", font=self.fuente, command=lambda: self._insert_text("9"))
+        self.button0 = tk.Button(self.frame, text="0", font=self.fuente, command=lambda: self._insert_text("0"))
+        
+        self.buttonA = tk.Button(self.frame, text="A", font=self.fuente, command=lambda: self._insert_text("A", hex_only=True))
+        self.buttonB = tk.Button(self.frame, text="B", font=self.fuente, command=lambda: self._insert_text("B", hex_only=True))
+        self.buttonC = tk.Button(self.frame, text="C", font=self.fuente, command=lambda: self._insert_text("C", hex_only=True))
+        self.buttonD = tk.Button(self.frame, text="D", font=self.fuente, command=lambda: self._insert_text("D", hex_only=True))
+        self.buttonE = tk.Button(self.frame, text="E", font=self.fuente, command=lambda: self._insert_text("E", hex_only=True))
+        self.buttonF = tk.Button(self.frame, text="F", font=self.fuente, command=lambda: self._insert_text("F", hex_only=True))
 
-        # Ubicacion de los botones de operaciones
-        self.buttonSuma.grid(row=9, column=4, padx=5, pady=5)
-        self.buttonResta.grid(row=8, column=4, padx=5, pady=5)
-        self.buttonMultiplicacion.grid(row=7, column=4, padx=5, pady=5)
-        self.buttonDivision.grid(row=6, column=4, padx=5, pady=5)
-        self.buttonIgual.grid(row=10, column=4, padx=5, pady=5)
-        self.buttonClear.grid(row=5, column=3, padx=5, pady=5)
-        self.buttonAbsolute.grid(row=10, column=1, padx=5, pady=5)
-        self.buttonPunto.grid(row=10, column=3, padx=5, pady=5)
-        self.buttonDelete.grid(row=5, column=4, padx=5, pady=5)
-        self.buttonSin.grid(row=5, column=1, padx=5, pady=5)
-        self.buttonUpper.grid(row=5, column=2, padx=5, pady=5)
-        self.buttonFactorial.grid(row=6, column=1, padx=5, pady=5)
-        self.buttonRaiz.grid(row=6, column=2, padx=5, pady=5)
-        self.buttonModule.grid(row=6, column=3, padx=5, pady=5)
+        self.buttonSuma = tk.Button(self.frame, text="+", font=self.fuente, command=lambda: self.set_operando('+'))
+        self.buttonResta = tk.Button(self.frame, text="-", font=self.fuente, command=lambda: self.set_operando('-'))
+        self.buttonMultiplicacion = tk.Button(self.frame, text="*", font=self.fuente, command=lambda: self.set_operando('*'))
+        self.buttonDivision = tk.Button(self.frame, text="/", font=self.fuente, command=lambda: self.set_operando('/'))
+        self.buttonIgual = tk.Button(self.frame, text="=", font=self.fuente, command=self.button_igual)
+        self.buttonClear = tk.Button(self.frame, text="CR", font=self.fuente, command=self.button_clear)
+        self.buttonAbsolute = tk.Button(self.frame, text="+/-", font=self.fuente, command=self.button_Absolute)
+        self.buttonPunto = tk.Button(self.frame, text=".", font=self.fuente, command=self.button_punto)
+        self.buttonDelete = tk.Button(self.frame, text="DEL", font=self.fuente, command=self.button_delete)
+        self.buttonSin = tk.Button(self.frame, text="sin", font=self.fuente, command=self.button_sin)
+        self.buttonUpper = tk.Button(self.frame, text="^", font=self.fuente, command=lambda: self.set_operando('^'))
+        self.buttonFactorial = tk.Button(self.frame, text="x!", font=self.fuente, command=self.button_factorial)
+        self.buttonRaiz = tk.Button(self.frame, text="√", font=self.fuente, command=self.button_raiz)
+        self.buttonModule = tk.Button(self.frame, text="%", font=self.fuente, command=lambda: self.set_operando('%'))
 
+        self.button1.grid(row=9, column=1, padx=2, pady=2, sticky="nsew")
+        self.button3.grid(row=9, column=3, padx=2, pady=2, sticky="nsew")
+        self.button2.grid(row=9, column=2, padx=2, pady=2, sticky="nsew")
+        self.button4.grid(row=8, column=1, padx=2, pady=2, sticky="nsew")
+        self.button5.grid(row=8, column=2, padx=2, pady=2, sticky="nsew")
+        self.button6.grid(row=8, column=3, padx=2, pady=2, sticky="nsew")
+        self.button7.grid(row=7, column=1, padx=2, pady=2, sticky="nsew")
+        self.button8.grid(row=7, column=2, padx=2, pady=2, sticky="nsew")
+        self.button9.grid(row=7, column=3, padx=2, pady=2, sticky="nsew")
+        self.button0.grid(row=10, column=2, padx=2, pady=2, sticky="nsew")
+        self.buttonA.grid(row=5, column=0, padx=2, pady=2, sticky="nsew")
+        self.buttonB.grid(row=6, column=0, padx=2, pady=2, sticky="nsew")
+        self.buttonC.grid(row=7, column=0, padx=2, pady=2, sticky="nsew")
+        self.buttonD.grid(row=8, column=0, padx=2, pady=2, sticky="nsew")
+        self.buttonE.grid(row=9, column=0, padx=2, pady=2, sticky="nsew")
+        self.buttonF.grid(row=10, column=0, padx=2, pady=2, sticky="nsew")
+
+        self.buttonSuma.grid(row=9, column=4, padx=2, pady=2, sticky="nsew")
+        self.buttonResta.grid(row=8, column=4, padx=2, pady=2, sticky="nsew")
+        self.buttonMultiplicacion.grid(row=7, column=4, padx=2, pady=2, sticky="nsew")
+        self.buttonDivision.grid(row=6, column=4, padx=2, pady=2, sticky="nsew")
+        self.buttonIgual.grid(row=10, column=4, padx=2, pady=2, sticky="nsew")
+        self.buttonClear.grid(row=5, column=3, padx=2, pady=2, sticky="nsew")
+        self.buttonAbsolute.grid(row=10, column=1, padx=2, pady=2, sticky="nsew")
+        self.buttonPunto.grid(row=10, column=3, padx=2, pady=2, sticky="nsew")
+        self.buttonDelete.grid(row=5, column=4, padx=2, pady=2, sticky="nsew")
+        self.buttonSin.grid(row=5, column=1, padx=2, pady=2, sticky="nsew")
+        self.buttonUpper.grid(row=5, column=2, padx=2, pady=2, sticky="nsew")
+        self.buttonFactorial.grid(row=6, column=1, padx=2, pady=2, sticky="nsew")
+        self.buttonRaiz.grid(row=6, column=2, padx=2, pady=2, sticky="nsew")
+        self.buttonModule.grid(row=6, column=3, padx=2, pady=2, sticky="nsew")
+
+        self.calc = calc.Calculadora() 
         self.numero_aux = 0
         self.operador = ''
         self.Dec = True
         self.Hexa = False
         self.Octa = False
         self.Bin = False
+        self.operando = ''
+
+    def _parse_display_to_base10(self):
+        val = self.display.get()
+        if not val or val == "-" or val == ".":
+            return 0
+        try:
+            if self.Hexa:
+                return int(val, 16)
+            elif self.Octa:
+                return int(val, 8)
+            elif self.Bin:
+                return int(val, 2)
+            else:
+                return float(val) if '.' in val else int(val)
+        except ValueError:
+            return 0
+
+    def _format_value_for_current_mode(self, base10_val):
+        try:
+            if self.Hexa:
+                return conv.dec_hex(int(base10_val))
+            elif self.Octa:
+                return conv.dec_oct(int(base10_val))
+            elif self.Bin:
+                return conv.dec_bin(int(base10_val))
+            else:
+                if isinstance(base10_val, float) and base10_val.is_integer():
+                    return str(int(base10_val))
+                return str(base10_val)
+        except (ValueError, TypeError, OverflowError):
+            return "Error"
+
+    def _sync_active_display(self):
+        val = self.display.get()
+        if self.Hexa:
+            self.displayHex.config(state='normal')
+            self.displayHex.delete(0, END)
+            self.displayHex.insert(tk.END, val)
+            self.displayHex.config(state='disabled')
+        elif self.Dec:
+            self.displayDec.config(state='normal')
+            self.displayDec.delete(0, END)
+            self.displayDec.insert(tk.END, val)
+            self.displayDec.config(state='disabled')
+        elif self.Octa:
+            self.displayOct.config(state='normal')
+            self.displayOct.delete(0, END)
+            self.displayOct.insert(tk.END, val)
+            self.displayOct.config(state='disabled')
+        elif self.Bin:
+            self.displayBin.config(state='normal')
+            self.displayBin.delete(0, END)
+            self.displayBin.insert(tk.END, val)
+            self.displayBin.config(state='disabled')
+
+    def _insert_text(self, text, hex_only=False):
+        self.display.config(state='normal')
+        self.display.insert(tk.END, text)
+        self.display.config(state='disabled')
+        self._sync_active_display()
 
     def dissable_operations(self):
         self.buttonMultiplicacion.config(state='disabled')
@@ -126,429 +191,206 @@ class App(tk.Tk):
         self.buttonFactorial.config(state='disabled')
         self.buttonUpper.config(state='disabled')
         self.buttonModule.config(state='disabled')
-        self.buttonFactorial.config(state='disabled')
         self.buttonRaiz.config(state='disabled')
 
     def dissable_numHex(self):
-        self.buttonA.config(state='disabled')
-        self.buttonB.config(state='disabled')
-        self.buttonC.config(state='disabled')
-        self.buttonD.config(state='disabled')
-        self.buttonE.config(state='disabled')
-        self.buttonF.config(state='disabled')
+        for btn in (self.buttonA, self.buttonB, self.buttonC, self.buttonD, self.buttonE, self.buttonF):
+            btn.config(state='disabled')
 
     def enable_operations(self):
-        self.buttonSuma.config(state='normal')
-        self.buttonResta.config(state='normal')
-        self.buttonMultiplicacion.config(state='normal')
-        self.buttonDivision.config(state='normal')
-        self.buttonIgual.config(state='normal')
+        for btn in (self.buttonSuma, self.buttonResta, self.buttonMultiplicacion, self.buttonDivision, self.buttonIgual):
+            btn.config(state='normal')
 
     def disable_numbers(self):
-        self.button2.config(state='disabled')
-        self.button3.config(state='disabled')
-        self.button4.config(state='disabled')
-        self.button5.config(state='disabled')
-        self.button6.config(state='disabled')
-        self.button7.config(state='disabled')
-        self.button8.config(state='disabled')
-        self.button9.config(state='disabled')
+        for btn in (self.button2, self.button3, self.button4, self.button5, self.button6, self.button7, self.button8, self.button9):
+            btn.config(state='disabled')
 
     def disable_numbers_oct(self):
-        self.button9.config(state='disabled')
         self.button8.config(state='disabled')
+        self.button9.config(state='disabled')
 
     def enable_numbers(self):
-        self.button2.config(state='normal')
-        self.button3.config(state='normal')
-        self.button4.config(state='normal')
-        self.button5.config(state='normal')
-        self.button6.config(state='normal')
-        self.button7.config(state='normal')
-        self.button8.config(state='normal')
-        self.button9.config(state='normal')
+        for btn in (self.button2, self.button3, self.button4, self.button5, self.button6, self.button7, self.button8, self.button9):
+            btn.config(state='normal')
 
     def enable_numHex(self):
-        self.buttonA.config(state='normal')
-        self.buttonB.config(state='normal')
-        self.buttonC.config(state='normal')
-        self.buttonD.config(state='normal')
-        self.buttonE.config(state='normal')
-        self.buttonF.config(state='normal')
+        for btn in (self.buttonA, self.buttonB, self.buttonC, self.buttonD, self.buttonE, self.buttonF):
+            btn.config(state='normal')
 
+    def _switch_mode(self, new_mode):
+        base10_val = self._parse_display_to_base10()
+        
+        self.Dec = (new_mode == 'DEC')
+        self.Hexa = (new_mode == 'HEX')
+        self.Octa = (new_mode == 'OCT')
+        self.Bin = (new_mode == 'BIN')
+        
+        if new_mode == 'HEX':
+            self.enable_numHex()
+            self.enable_numbers()
+            self.dissable_operations() 
+        elif new_mode == 'DEC':
+            self.dissable_numHex()
+            self.enable_numbers()
+            self.enable_operations()
+        elif new_mode == 'OCT':
+            self.dissable_numHex()
+            self.enable_numbers()
+            self.disable_numbers_oct()
+            self.dissable_operations()
+        elif new_mode == 'BIN':
+            self.dissable_numHex()
+            self.enable_numbers()
+            self.disable_numbers()
+            self.dissable_operations()
 
-    def button_1(self):
+        new_text = self._format_value_for_current_mode(base10_val)
+        
         self.display.config(state='normal')
-        self.display.insert(tk.END, "1")
+        self.display.delete(0, END)
+        self.display.insert(tk.END, new_text)
         self.display.config(state='disabled')
+        
+        self._sync_active_display()
 
-    def button_2(self):
-        self.display.config(state='normal')
-        self.display.insert(tk.END, "2")
-        self.display.config(state='disabled')
+    def button_Hexa(self): self._switch_mode('HEX')
+    def button_Decimal(self): self._switch_mode('DEC')
+    def button_Octal(self): self._switch_mode('OCT')
+    def button_Binario(self): self._switch_mode('BIN')
 
-    def button_3(self):
+    def set_operando(self, op):
+        self.numero_aux = self._parse_display_to_base10()
+        
         self.display.config(state='normal')
-        self.display.insert(tk.END, "3")
-        self.display.config(state='disabled')   
-
-    def button_4(self):
-        self.display.config(state='normal')
-        self.display.insert(tk.END, "4")
-        self.display.config(state='disabled')   
-
-    def button_5(self):
-        self.display.config(state='normal')
-        self.display.insert(tk.END, "5")
-        self.display.config(state='disabled')   
-    
-    def button_6(self):
-        self.display.config(state='normal')
-        self.display.insert(tk.END, "6")
-        self.display.config(state='disabled')
-
-    def button_7(self):
-        self.display.config(state='normal')
-        self.display.insert(tk.END, "7")
-        self.display.config(state='disabled')
-
-    def button_8(self):
-        self.display.config(state='normal')
-        self.display.insert(tk.END, "8")
-        self.display.config(state='disabled')   
-
-    def button_9(self):
-        self.display.config(state='normal')
-        self.display.insert(tk.END, "9")
-        self.display.config(state='disabled')
-
-    def button_0(self):
-        self.display.config(state='normal')
-        self.display.insert(tk.END, "0")
-        self.display.config(state='disabled')
-
-    def button_A(self):
-        self.display.config(state='normal')
-        self.displayHex.config(state='normal')
-        self.display.insert(tk.END, "A")
-        self.displayHex.insert(tk.END, "A")
-        self.displayHex.config(state='disabled')
-        self.display.config(state='disabled')
-    def button_B(self):
-        self.display.config(state='normal')
-        self.displayHex.config(state='normal')
-        self.display.insert(tk.END, "B")
-        self.displayHex.insert(tk.END, "B")
-        self.displayHex.config(state='disabled')
-        self.display.config(state='disabled')
-    def button_C(self):
-        self.display.config(state='normal')
-        self.displayHex.config(state='normal')
-        self.display.insert(tk.END, "C")
-        self.displayHex.insert(tk.END, "C")
-        self.displayHex.config(state='disabled')
-        self.display.config(state='disabled')
-
-    def button_D(self):
-        self.display.config(state='normal')
-        self.displayHex.config(state='normal')
-        self.display.insert(tk.END, "D")
-        self.displayHex.insert(tk.END, "D")
-        self.displayHex.config(state='disabled')
-        self.display.config(state='disabled')
-    def button_E(self):
-        self.display.config(state='normal')
-        self.displayHex.config(state='normal')
-        self.display.insert(tk.END, "E")
-        self.displayHex.insert(tk.END, "E")
-        self.displayHex.config(state='disabled')
-        self.display.config(state='disabled')
-    def button_F(self):
-        self.display.config(state='normal')
-        self.displayHex.config(state='normal')
-        self.display.insert(tk.END, "F")
-        self.displayHex.insert(tk.END, "F")
-        self.displayHex.config(state='disabled')
-        self.display.config(state='disabled')
-
-    def button_Hexa(self):
-        self.Hexa = True
-        self.Octa = False
-        self.Bin = False
-        self.displayHex.config(state='normal')
-        self.enable_numHex()
-        self.enable_numbers()
-        self.dissable_operations() #no hace nada
-        try:
-            self.numero_aux = conv.dec_hex(int(self.display.get()))
-        except ValueError:
-            self.numero_aux = float(self.display.get())
-            if(self.numero_aux != int(self.numero_aux)):
-                aux = str(self.numero_aux).split('.')
-                self.numero_aux = int(aux[:-2])
-            self.numero_aux = conv.dec_hex(int(self.numero_aux))
-            self.displayHex.delete(0, END)
-            self.displayHex.config(state='disabled')
-
-        self.displayHex.delete(0, END)
-        self.displayHex.insert(tk.END, str(self.numero_aux))
-        self.displayHex.config(state='disabled')
-
-    def button_Decimal(self):
-        self.Dec = True
-        self.Hexa = False
-        self.Bin = False
-        self.Octa = False
-        self.display.config(state='normal')
-        self.displayDec.config(state='normal')
-        self.dissable_numHex()
-        self.enable_numbers()
-        self.enable_operations()
-        try:
-            self.numero_aux = float(self.display.get())
-        except ValueError:
-            messagebox.showerror("Error", "Entrada inválida para conversión a decimal")
-            self.displayDec.delete(0, END)
-            self.displayDec.config(state='disabled')
-            return
-        self.displayDec.delete(0, END)
-        self.displayDec.insert(0, str(self.numero_aux))
-        self.displayDec.config(state='disabled')
-        self.display.config(state='disabled')
-
-
-    def button_Binario(self):
-        self.displayBin.config(state='normal')
-        self.dissable_operations()
-        self.dissable_numHex()
-        self.disable_numbers()
-        try:
-            self.numero_aux = conv.dec_bin(int(self.display.get()))
-        except ValueError:
-            self.numero_aux = conv.dec_bin(int(self.displayDec.get()))
-            self.displayBin.delete(0, END)
-            self.display.insert(0, str(0))
-        self.displayBin.delete(0, END)
-        self.display.insert(0, str(self.numero_aux))
-        self.displayBin.insert(0, str(self.numero_aux))
-        self.displayBin.config(state='disabled')
-
-    def button_Octal(self):
-        self.Octa = True
-        self.Bin = False
-        self.Hexa = False
-        self.displayOct.config(state='normal')
-        self.dissable_operations()
-        self.dissable_numHex()
-        self.disable_numbers_oct()
-        try:
-            self.numero_aux = conv.dec_oct(int(self.display.get()))
-        except ValueError:
-            self.numero_aux = conv.dec_oct(int(self.displayDec.get()))
-            self.displayOct.delete(0, END)
-            self.display.insert(0, str(0))
-        self.displayOct.delete(0, END)
-        self.displayOct.insert(0, str(self.numero_aux))
-        self.displayOct.config(state='disabled')
-
-    def button_Upper(self):
-        self.display.config(state='normal')
-        try:
-            self.numero_aux = int(self.display.get())
-            self.display.delete(0, END)
-            
-        except ValueError:
-            messagebox.showerror("Error", "Entrada inválida para operación de potencia")
-            self.display.delete(0, END)
-            self.display.insert(0, str(0))
-            self.display.config(state='disabled')
-            return
-        self.operando = '^'
-        self.display.config(state='disabled')
-
-    def button_modulo(self):
-        self.display.config(state='normal')
-        self.numero_aux = int(self.display.get())
         self.display.delete(0, END)
         self.display.config(state='disabled')
-        self.operando = '%'
-
-
-    def button_suma(self):
-        self.display.config(state='normal')
-        try:
-            self.numero_aux = (self.display.get())
-        except:
-            if self.Hexa == True:
-                self.mumero_aux = int(self.display.get(), 16)
-            elif self.Octa == True:
-                self.numero_aux = int(self.display.get(), 8)
-            elif self.Bin == True: 
-                int(self.display.get(), 2)
-            else:
-                ValueError
-                return
-        self.display.delete(0, END)
-        self.display.config(state='disabled')
-        self.operando = '+'
-
-    def button_resta(self):
-        self.display.config(state='normal')
-        try:
-            self.numero_aux = (self.display.get())
-        except:
-            if self.Hexa == True:
-                self.mumero_aux = int(self.display.get(), 16)
-            elif self.Octa == True:
-                self.numero_aux = int(self.display.get(), 8)
-            elif self.Bin == True: 
-                int(self.display.get(), 2)
-            else:
-                ValueError
-                return
-        self.display.delete(0, END)
-        self.display.config(state='disabled')
-        self.operando = '-'
-
-    def button_multiplicacion(self):
-        self.display.config(state='normal')
-        self.numero_aux = int(self.display.get())
-        self.display.delete(0, END)
-        self.display.config(state='disabled')
-        self.operando = '*'
-
-    def button_division(self):
-        self.display.config(state='normal')
-        self.numero_aux = float(self.display.get())
-        self.display.delete(0, END)
-        self.display.config(state='disabled')
-        self.operando = '/'
+        
+        self.operando = op
+        self._sync_active_display()
 
     def button_punto(self):
         self.display.config(state='normal')
-        self.display.insert(tk.END, ".")
-        self.numero_aux = float(self.display.get())
+        if "." not in self.display.get():
+            self.display.insert(tk.END, ".")
         self.display.config(state='disabled')
+        self._sync_active_display()
 
     def button_factorial(self):
-        self.display.config(state="normal")
         try:
-            self.numero_aux = int(self.display.get())
-            self.ob = calc.Calculadora()
-            self.ob.factorial(self.numero_aux)
-
-        except ValueError:
-            messagebox.showerror("Error", "Entrada inválida para factorial")
+            num = int(self._parse_display_to_base10())
+            self.calc.factorial(num)
+            
+            new_text = self._format_value_for_current_mode(self.calc.getResultado())
+            self.display.config(state="normal")
             self.display.delete(0, END)
-            self.display.insert(0, str(0))
+            self.display.insert(0, new_text)
             self.display.config(state='disabled')
-            return
-        self.display.delete(0, END)
-        self.display.insert(0, str(self.ob.getResultado()))
-        self.display.config(state='disabled')
+            
+            self._sync_active_display()
+        except ValueError as e:
+            messagebox.showerror("Error", str(e))
+            self.button_clear()
 
     def button_Absolute(self):
+        val = self._parse_display_to_base10()
+        new_val = -val
+        
+        new_text = self._format_value_for_current_mode(new_val)
         self.display.config(state='normal')
-        if(self.display.get() == int):
-            self.numero_aux = int(self.display.get())
-        else:
-            self.numero_aux = float(self.display.get())
-        if (self.numero_aux)>0:
-            self.display.delete(0, END)
-            self.display.insert(0, '-'+str(self.numero_aux))
-        else:
-            self.display.delete(0, END)
-            self.display.insert(0, str(self.numero_aux))
+        self.display.delete(0, END)
+        self.display.insert(0, new_text)
         self.display.config(state='disabled')
+        
+        self._sync_active_display()
 
     def button_raiz(self):
-        self.display.config(state='normal')
-        self.numero_aux = float(self.display.get())
-        self.display.delete(0, END)
         try:
-            self.ob= calc.Calculadora()
-            self.ob.sqrt(self.numero_aux)
-        except ValueError:
-            messagebox.showerror("Error", "Entrada inválida para raíz cuadrada")
+            num = self._parse_display_to_base10()
+            self.calc.sqrt(num)
+            
+            new_text = self._format_value_for_current_mode(self.calc.getResultado())
+            self.display.config(state='normal')
             self.display.delete(0, END)
-            self.display.insert(0, str(0))
+            self.display.insert(0, new_text)
             self.display.config(state='disabled')
-            return
-        self.display.insert(0, str(self.ob.getResultado()))
-        self.display.config(state='disabled')
-
+            
+            self._sync_active_display()
+        except ValueError as e:
+            messagebox.showerror("Error", str(e))
+            self.button_clear()
 
     def button_sin(self):
-        self.display.config(state='normal')
-        self.numero_aux = float(self.display.get())
-        self.display.delete(0, END)
         try:
-            self.ob= calc.Calculadora()
-            self.ob.sin(self.numero_aux)
-        except ValueError:
-            messagebox.showerror("Error", "Entrada inválida para función seno")
+            num = self._parse_display_to_base10()
+            self.calc.sin(num)
+            
+            new_text = self._format_value_for_current_mode(self.calc.getResultado())
+            self.display.config(state='normal')
             self.display.delete(0, END)
-            self.display.insert(0, str(0))
+            self.display.insert(0, new_text)
             self.display.config(state='disabled')
-            return
-        self.display.insert(0, str(self.ob.getResultado()))
-        self.display.config(state='disabled')
+            
+            self._sync_active_display()
+        except ValueError as e:
+            messagebox.showerror("Error", "Entrada inválida para función seno")
+            self.button_clear()
 
     def button_igual(self):
-        self.ob = calc.Calculadora()
-        try:
-            self.ob.operacion(self.numero_aux, int(self.display.get()), self.operando)
-        except ValueError:
-            self.ob.operacion(self.numero_aux, float(self.display.get()), self.operando)
-            self.ob.operacion(self.numero_aux, 0, '+')
-            self.display.delete(0, END)
-            self.display.insert(0, str(0))
-            self.display.config(state='disabled')
+        if not self.operando:
             return
-        self.display.config(state='normal')
-        self.display.delete(0, END)
-        self.display.insert(0, str(self.ob.getResultado()))
-        self.display.config(state='disabled')
+            
+        val = self.display.get()
+        if not val:
+            return 
+            
+        try:
+            num2 = self._parse_display_to_base10()
+            self.calc.operacion(self.numero_aux, num2, self.operando)
+            
+            res = self.calc.getResultado()
+            new_text = self._format_value_for_current_mode(res)
+            
+            self.display.config(state='normal')
+            self.display.delete(0, END)
+            self.display.insert(0, new_text)
+            self.display.config(state='disabled')
+            
+            self.numero_aux = res
+            self.operando = '' 
+            self._sync_active_display()
+            
+        except ZeroDivisionError:
+            messagebox.showerror("Error", "No se puede dividir por cero")
+            self.button_clear()
+        except ValueError as e:
+            messagebox.showerror("Error", str(e))
+            self.button_clear()
+
 
     def button_delete(self):
         self.display.config(state='normal')
-        self.displayDec.config(state='normal')
-        self.displayHex.config(state='normal')
-        self.displayOct.config(state='normal')
-        self.displayBin.config(state='normal')
-        try:
+        if len(self.display.get()) > 0:
             self.display.delete(len(self.display.get())-1, END)
-            self.displayDec.delete(len(self.displayDec.get())-1, END)
-            self.displayHex.delete(len(self.displayHex.get())-1, END)
-            self.displayOct.delete(len(self.displayOct.get())-1, END)
-            self.displayBin.delete(len(self.displayBin.get())-1, END)
-        except tk.TclError:
-            pass
         self.display.config(state='disabled')
-        self.displayDec.config(state='disabled')
-        self.displayHex.config(state='disabled')
-        self.displayOct.config(state='disabled')
-        self.displayBin.config(state='disabled')
+        
+        self._sync_active_display()
 
 
     def button_clear(self):
-        self.ob = calc.Calculadora()
-        self.ob.clear()
+        self.calc.clear()
+        self.numero_aux = 0
+        self.operando = ''
+        
         self.display.config(state='normal')
-        self.displayDec.config(state='normal')
-        self.displayHex.config(state='normal')
-        self.displayOct.config(state='normal')
-        self.displayBin.config(state='normal')
         self.display.delete(0, END)
-        self.displayDec.delete(0, END)
-        self.displayHex.delete(0, END)
-        self.displayOct.delete(0, END)
-        self.displayBin.delete(0, END)
         self.display.config(state='disabled')
-        self.displayDec.config(state='disabled')
-        self.displayHex.config(state='disabled')
-        self.displayOct.config(state='disabled')
-        self.displayBin.config(state='disabled')
+        
+        for d in (self.displayHex, self.displayDec, self.displayOct, self.displayBin):
+            d.config(state='normal')
+            d.delete(0, END)
+            d.config(state='disabled')
+            
+        self._sync_active_display()
 
 if __name__=="__main__":
     app=App()

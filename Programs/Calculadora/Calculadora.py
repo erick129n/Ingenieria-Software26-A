@@ -14,6 +14,9 @@ class Calculadora:
         elif operador == '^':
             self.resultado = n1 ** n2
         elif operador == 'x!':
+            n1 = int(n1)
+            if n1 < 0:
+                raise ValueError("El factorial no está definido para números negativos")
             resultado = 1
             for i in range(1, n1 + 1):
                 resultado *= i

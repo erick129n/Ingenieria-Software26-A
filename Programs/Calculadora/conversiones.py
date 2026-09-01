@@ -1,55 +1,44 @@
 def dec_bin(numero):
+    if numero == 0:
+        return "0"
+    is_neg = numero < 0
+    numero = abs(int(numero))
     binario = ''
-    cociente = 0
-    residuo= 0
     while numero > 0:
-        cociente = int(numero/2)
-        residuo = int(numero)%2
-        numero = cociente
+        residuo = numero % 2
+        numero = numero // 2
         binario = str(residuo) + binario
-
-    return binario
+    return "-" + binario if is_neg else binario
 
 def Hexa(valor):
-    hex_= ""
-    if valor == 10:
-        hex_ = 'A'
-    elif valor == 11:
-        hex_ = 'B'
-    elif valor == 12:
-        hex_ = 'C'
-    elif valor == 13:
-        hex_ = 'D'
-    elif valor == 14:
-        hex_ ='E'
-    elif valor == 15:
-        hex_ = 'F'
-    else:
-        hex_ = str(valor)
-    return hex_
+    if valor == 10: return 'A'
+    if valor == 11: return 'B'
+    if valor == 12: return 'C'
+    if valor == 13: return 'D'
+    if valor == 14: return 'E'
+    if valor == 15: return 'F'
+    return str(valor)
 
 def dec_hex(numero):
     if numero == 0:
         return "0"
-    
+    is_neg = numero < 0
+    numero = abs(int(numero))
     hex_ = ''
-    numero = int(numero)
-    
     while numero > 0:
         residuo = numero % 16
         hex_ = Hexa(residuo) + hex_
-        numero = numero // 16 
-    
-    return hex_
+        numero = numero // 16
+    return "-" + hex_ if is_neg else hex_
 
 def dec_oct(numero):
+    if numero == 0:
+        return "0"
+    is_neg = numero < 0
+    numero = abs(int(numero))
     octal = ''
-    cociente = 0
-    residuo= 0
     while numero > 0:
-        cociente = int(numero/8)
-        residuo = int(numero)%8
-        numero = cociente
+        residuo = numero % 8
+        numero = numero // 8
         octal = str(residuo) + octal
-
-    return octal
+    return "-" + octal if is_neg else octal
