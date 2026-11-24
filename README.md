@@ -68,7 +68,6 @@ Sistema modular de arquitectura robusta por capas (Modelos, Vistas, Persistencia
 ```text
 src2/
 ├── databases/              # Capa de Acceso a Datos (CRUD)
-│   ├── conection1.py       # Configuración de base de datos
 │   ├── dbUsuario.py        # Consultas de usuarios
 │   ├── db_cliente.py       # Consultas de clientes
 │   ├── db_pieza.py         # Consultas de inventario
